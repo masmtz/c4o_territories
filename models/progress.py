@@ -41,7 +41,7 @@ class TerritoryProgress(models.Model):
     date_start = fields.Date()
     date_end = fields.Date()
     meeting_point = fields.Char()
-    street_lines = fields.Many2one("")
+    street_lines = fields.One2many("territory.progress.line", "progress_id")
     progress_warning = fields.Char()
 
 
@@ -50,6 +50,7 @@ class TerritoryProgressLine(models.Model):
     _description = "Territory Progress Streets"
 
     name = fields.Char()
+    progress_id = fields.Many2one("territory.progress")
     sidewalk = fields.Selection(
         [("n", "North"), ("s", "South"), ("e", "East"), ("w", "West")]
     )

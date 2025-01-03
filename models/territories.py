@@ -11,7 +11,7 @@ class PreachingTerritory(models.Model):
 
     name = fields.Char()
     description = fields.Text()
-    street_lines = fields.One2many()
+    street_lines = fields.One2many("territory.street", "territory_id")
     image = fields.Binary()
     num_houses = fields.Integer()
 
@@ -21,6 +21,7 @@ class TerritoryStreet(models.Model):
     _description = "Territory Streets"
 
     name = fields.Char()
+    territory_id = fields.Many2one("preaching.territory")
     sidewalk = fields.Selection(
         [("n", "North"), ("s", "South"), ("e", "East"), ("w", "West")]
     )
