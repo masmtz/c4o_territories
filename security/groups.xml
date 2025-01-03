@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="territories_user" model="res.groups">
+            <field name="name">Territories: User</field>
+        </record>
+
+        <record id="territories_admin" model="res.groups">
+            <field name="name">Territories: Admin</field>
+        </record>
+    </data>
+</odoo>

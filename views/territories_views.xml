@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="territories_main_menu" name="Territories" sequence="500" groups="c4o_territories.territories_user,c4o_territories.territories_admin" />
+
+        <menuitem id="territory_progress_menu" name="Progress" sequence="1" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu" action="action_progress"/>
+
+        <menuitem id="territories_config_menu" name="Configuration" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu"/>
+
+        <menuitem id="territories_menu" name="Territories" sequence="1" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action="action_territories"/>
+
+        <menuitem id="laps_menu" name="Laps" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action=""/>
+
+        <!-- action Territories -->
+        <record id="action_territories" model="ir.actions.act_window">
+            <field name="name">Territories</field>
+            <field name="res_model">preaching.territory</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="territories_tree_view"/>
+            <field name="target">current</field>
+        </record>
+        
+        <!-- Territories tree view -->
+        <record id="territories_tree_view" model="ir.ui.view">
+            <field name="name">territories.tree.view</field>
+            <field name="model">preaching.territory</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="num_houses"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Territories form view -->
+        <record id="territories_form_view" model="ir.ui.view">
+            <field name="name">territories.form.view</field>
+            <field name="model">preaching.territory</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box"/>
+                        <div class="oe_title mb24">
+                            <h1>
+                                <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="e.g. #18" required="1"/>
+                            </h1>
+                            <div class="o_row">
+                                <field name="num_houses"/>
+                            </div>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="description" widget="html"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="streets" string="Streets">
+                                <field name="street_lines">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="sidewalk"/>
+                                        <field name="num_houses"/>
+                                        <field name="notes"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- action Progress -->
+        <record id="action_progress" model="ir.actions.act_window">
+            <field name="name">Progress</field>
+            <field name="res_model">territory.progress</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="territory_progress_tree_view"/>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Progress tree view -->
+        <record id="territory_progress_tree_view" model="ir.ui.view">
+            <field name="name">territory.progress.tree.view</field>
+            <field name="model">territory.progress</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Progress form view -->
+        <record id="territory_progress_form_view" model="ir.ui.view">
+            <field name="name">territory.progress.form.view</field>
+            <field name="model">territory.progress</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="pending,partially,done"/>
+                    </header>
+                    <div class="alert alert-warning" role="alert" invisible="partner_credit_warning == ''">
+                        <field name="progress_warning"/>
+                    </div>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box"/>
+                        <div class="oe_title mb24">
+                            <h1>
+                                <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="e.g. #18" required="1"/>
+                            </h1>
+                            <div class="o_row">
+                                <field name="lap_id"/>
+                            </div>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="notes" widget="html"/>
+                            </group>
+                            <group>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="streets" string="Streets">
+                                <field name="street_lines">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="sidewalk"/>
+                                        <field name="num_houses"/>
+                                        <field name="notes"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- action Laps -->
+        <record id="action_laps" model="ir.actions.act_window">
+            <field name="name">Laps</field>
+            <field name="res_model">territory.lap</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="territory_lap_tree_view"/>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Laps tree view -->
+        <record id="territory_lap_tree_view" model="ir.ui.view">
+            <field name="name">territory.lap.tree.view</field>
+            <field name="model">territory.lap</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Laps form view -->
+        <record id="territory_lap_form_view" model="ir.ui.view">
+            <field name="name">territory.lap.form.view</field>
+            <field name="model">territory.lap</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,progress,pause,done"/>
+                    </header>
+                    <div class="alert alert-warning" role="alert" invisible="partner_credit_warning == ''">
+                        <field name="lap_warning"/>
+                    </div>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box"/>
+                        <div class="oe_title mb24">
+                            <h1>
+                                <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="e.g. #18" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date_start"/>
+                            </group>
+                            <group>
+                                <field name="date_end"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

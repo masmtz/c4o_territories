@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_preaching_territory,preaching_territory,model_preaching_territory,,1,1,1,1
+access_territory_street,territory_street,model_territory_street,,1,1,1,1
+access_territory_lap,territory_lap,model_territory_lap,,1,1,1,1
+access_territory_progress,territory_progress,model_territory_progress,,1,1,1,1
+access_territory_progress_line,territory_progress_line,model_territory_progress_line,,1,1,1,1
