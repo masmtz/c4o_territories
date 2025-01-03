@@ -3,13 +3,13 @@
     <data>
         <menuitem id="territories_main_menu" name="Territories" sequence="500" groups="c4o_territories.territories_user,c4o_territories.territories_admin" />
 
-        <menuitem id="territory_progress_menu" name="Progress" sequence="1" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu" action="action_progress"/>
+        <menuitem id="territory_progress_menu" name="Progress" sequence="1" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu" action="c4o_territories.action_progress"/>
 
         <menuitem id="territories_config_menu" name="Configuration" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu"/>
 
-        <menuitem id="territories_menu" name="Territories" sequence="1" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action="action_territories"/>
+        <menuitem id="territories_menu" name="Territories" sequence="1" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action="c4o_territories.action_territories"/>
 
-        <menuitem id="laps_menu" name="Laps" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action=""/>
+        <menuitem id="laps_menu" name="Laps" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action="c4o_territories.action_laps"/>
 
         <!-- action Territories -->
         <record id="action_territories" model="ir.actions.act_window">
