@@ -3,13 +3,8 @@
     <data>
         <menuitem id="territories_main_menu" name="Territories" sequence="500" groups="c4o_territories.territories_user,c4o_territories.territories_admin" />
 
-        <menuitem id="territory_progress_menu" name="Progress" sequence="1" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu" action="c4o_territories.action_progress"/>
-
         <menuitem id="territories_config_menu" name="Configuration" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu"/>
 
-        <menuitem id="territories_menu" name="Territories" sequence="1" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action="c4o_territories.action_territories"/>
-
-        <menuitem id="laps_menu" name="Laps" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action="c4o_territories.action_laps"/>
 
         <!-- action Territories -->
         <record id="action_territories" model="ir.actions.act_window">
@@ -19,6 +14,9 @@
             <field name="view_id" ref="territories_tree_view"/>
             <field name="target">current</field>
         </record>
+
+        <!-- menu Territories -->
+        <menuitem id="territories_menu" name="Territories" sequence="1" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action="c4o_territories.action_territories"/>
         
         <!-- Territories tree view -->
         <record id="territories_tree_view" model="ir.ui.view">
@@ -79,6 +77,9 @@
             <field name="view_id" ref="territory_progress_tree_view"/>
             <field name="target">current</field>
         </record>
+
+        <!-- menu Progress -->
+        <menuitem id="territory_progress_menu" name="Progress" sequence="1" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu" action="c4o_territories.action_progress"/>
 
         <!-- Progress tree view -->
         <record id="territory_progress_tree_view" model="ir.ui.view">
@@ -149,6 +150,9 @@
             <field name="view_id" ref="territory_lap_tree_view"/>
             <field name="target">current</field>
         </record>
+
+        <!-- menu Laps -->
+        <menuitem id="laps_menu" name="Laps" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action="c4o_territories.action_laps"/>
 
         <!-- Laps tree view -->
         <record id="territory_lap_tree_view" model="ir.ui.view">
