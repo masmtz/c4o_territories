@@ -16,7 +16,7 @@ class PreachingTerritory(models.Model):
     num_houses = fields.Integer()
 
 
-class TerritoryStreet(models.model):
+class TerritoryStreet(models.Model):
     _name = "territory.street"
     _description = "Territory Streets"
 
