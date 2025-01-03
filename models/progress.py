@@ -45,7 +45,7 @@ class TerritoryProgress(models.Model):
     progress_warning = fields.Char()
 
 
-class TerritoryProgressLine(models.model):
+class TerritoryProgressLine(models.Model):
     _name = "territory.progress.line"
     _description = "Territory Progress Streets"
 
