@@ -11,8 +11,8 @@
     "depends": ["base"],
     "demo": [],
     "data": [
-        "secutiry/groups.xml",
-        "secutiry/ir.model.access.csv",
+        "security/groups.xml",
+        "security/ir.model.access.csv",
         "views/territories_views.xml",
     ],
     "installable": True,
