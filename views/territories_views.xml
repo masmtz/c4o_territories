@@ -102,7 +102,7 @@
                     <header>
                         <field name="state" widget="statusbar" statusbar_visible="pending,partially,done"/>
                     </header>
-                    <div class="alert alert-warning" role="alert" invisible="partner_credit_warning == ''">
+                    <div class="alert alert-warning" role="alert" invisible="progress_warning == ''">
                         <field name="progress_warning"/>
                     </div>
                     <sheet>
@@ -177,7 +177,7 @@
                     <header>
                         <field name="state" widget="statusbar" statusbar_visible="draft,progress,pause,done"/>
                     </header>
-                    <div class="alert alert-warning" role="alert" invisible="partner_credit_warning == ''">
+                    <div class="alert alert-warning" role="alert" invisible="lap_warning == ''">
                         <field name="lap_warning"/>
                     </div>
                     <sheet>
