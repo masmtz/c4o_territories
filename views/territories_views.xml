@@ -130,8 +130,8 @@
                                     <tree>
                                         <field name="name"/>
                                         <field name="sidewalk"/>
-                                        <field name="num_houses"/>
-                                        <field name="notes"/>
+                                        <field name="between_streets"/>
+                                        <field name="done"/>
                                     </tree>
                                 </field>
                             </page>

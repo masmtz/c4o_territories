@@ -54,6 +54,7 @@ class TerritoryProgressLine(models.Model):
     sidewalk = fields.Selection(
         [("n", "North"), ("s", "South"), ("e", "East"), ("w", "West")]
     )
-    between_strets = fields.Char()
+    between_streets = fields.Char()
     num_houses = fields.Integer()
+    done = fields.Boolean(default=False)
     notes = fields.Text()
