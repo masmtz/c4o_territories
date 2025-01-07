@@ -16,6 +16,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: c4o_territories
+#. odoo-python
+#: code:addons/c4o_territories/models/territories.py:0
+#: code:addons/c4o_territories/models/territories.py:0
+#, python-format
+msgid "Between  and "
+msgstr "Entre  y ""
+
+#. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress_line__between_streets
 msgid "Between Streets"
 msgstr "Entre calles"

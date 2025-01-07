@@ -14,6 +14,7 @@ class PreachingTerritory(models.Model):
     street_lines = fields.One2many("territory.street", "territory_id", copy=True)
     image = fields.Binary()
     num_houses = fields.Integer()
+    group_id = fields.Many2one("territory.group")
 
 
 class TerritoryStreet(models.Model):
@@ -43,6 +44,13 @@ class TerritoryStreet(models.Model):
             if rec.n_street and rec.s_street:
                 str_bstreets = _("Between " + rec.n_street + " and " + rec.s_street)
             rec.between_streets = str_bstreets
+
+
+class TerritoryGroup(models.Model):
+    _name = "territory.group"
+    _description = "Territories Groups"
+
+    name = fields.Char()
 
 
 class TerritoryConfigParamenter(models.Model):

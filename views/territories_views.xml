@@ -6,6 +6,27 @@
         <menuitem id="territories_config_menu" name="Configuration" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu"/>
 
 
+        <!-- Groups tree view -->
+        <record id="groups_tree_view" model="ir.ui.view">
+            <field name="name">groups.tree.view</field>
+            <field name="model">territory.group</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- action Groups -->
+        <record id="action_groups" model="ir.actions.act_window">
+            <field name="name">Groups</field>
+            <field name="res_model">territory.group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="groups_tree_view"/>
+            <field name="target">current</field>
+        </record>
+
+
         <!-- Territories tree view -->
         <record id="territories_tree_view" model="ir.ui.view">
             <field name="name">territories.tree.view</field>
@@ -43,10 +64,14 @@
                                 <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="e.g. #18" required="1"/>
                             </h1>
                             <div class="o_row">
+                                <label for="num_houses"/>
                                 <field name="num_houses"/>
                             </div>
                         </div>
                         <group>
+                            <group>
+                                <field name="group_id"/>
+                            </group>
                             <group>
                                 <field name="description" widget="html"/>
                             </group>
