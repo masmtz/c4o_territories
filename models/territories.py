@@ -11,7 +11,7 @@ class PreachingTerritory(models.Model):
 
     name = fields.Char()
     description = fields.Text()
-    street_lines = fields.One2many("territory.street", "territory_id")
+    street_lines = fields.One2many("territory.street", "territory_id", copy=True)
     image = fields.Binary()
     num_houses = fields.Integer()
 
