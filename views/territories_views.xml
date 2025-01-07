@@ -57,8 +57,7 @@
                                     <tree>
                                         <field name="name"/>
                                         <field name="sidewalk"/>
-                                        <field name="num_houses"/>
-                                        <field name="notes"/>
+                                        <field name="between_streets"/>
                                     </tree>
                                 </field>
                             </page>
