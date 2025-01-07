@@ -35,13 +35,14 @@ class TerritoryStreet(models.Model):
 
     @api.depends("n_street", "s_street", "w_street", "e_street")
     def compute_between_streets(self):
-        str_bstreets = ""
-        if self.w_street and self.e_street:
-            str_bstreets = _("Between " + self.w_street + " and " + self.e_street)
+        for rec in self:
+            str_bstreets = ""
+            if rec.w_street and rec.e_street:
+                str_bstreets = _("Between " + rec.w_street + " and " + rec.e_street)
 
-        if self.n_street and self.s_street:
-            str_bstreets = _("Between " + self.n_street + " and " + self.s_street)
-        self.between_streets = str_bstreets
+            if rec.n_street and rec.s_street:
+                str_bstreets = _("Between " + rec.n_street + " and " + rec.s_street)
+            rec.between_streets = str_bstreets
 
 
 class TerritoryConfigParamenter(models.Model):
