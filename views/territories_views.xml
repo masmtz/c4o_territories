@@ -84,6 +84,22 @@
                                         <field name="sidewalk"/>
                                         <field name="between_streets"/>
                                     </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="name"/>
+                                                <field name="n_street"/>
+                                                <field name="s_street"/>
+                                                <field name="num_houses"/>
+                                            </group>
+                                            <group>
+                                                <field name="sidewalk"/>
+                                                <field name="e_street"/>
+                                                <field name="o_street"/>
+                                                <field name="notes"/>
+                                            </group>
+                                        </group>
+                                    </form>
                                 </field>
                             </page>
                         </notebook>
