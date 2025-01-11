@@ -95,7 +95,7 @@
                                             <group>
                                                 <field name="sidewalk"/>
                                                 <field name="e_street"/>
-                                                <field name="o_street"/>
+                                                <field name="w_street"/>
                                                 <field name="notes"/>
                                             </group>
                                         </group>
