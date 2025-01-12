@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0-20241216\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-05 07:55+0000\n"
-"PO-Revision-Date: 2025-01-05 07:55+0000\n"
+"POT-Creation-Date: 2025-01-11 20:07+0000\n"
+"PO-Revision-Date: 2025-01-11 20:07+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,12 @@ msgstr ""
 #: code:addons/c4o_territories/models/territories.py:0
 #: code:addons/c4o_territories/models/territories.py:0
 #, python-format
-msgid "Between  and "
-msgstr "Entre  y ""
+msgid "Between %(street_1)s and %(street_2)s"
+msgstr "Entre %(street_1)s y %(street_2)s"
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress_line__between_streets
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_street__between_streets
 msgid "Between Streets"
 msgstr "Entre calles"
 
@@ -41,6 +42,7 @@ msgstr "Configuración"
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__create_uid
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_config_parameter__create_uid
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_group__create_uid
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_lap__create_uid
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__create_uid
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress_line__create_uid
@@ -51,6 +53,7 @@ msgstr "Creado por"
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__create_date
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_config_parameter__create_date
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_group__create_date
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_lap__create_date
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__create_date
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress_line__create_date
@@ -83,6 +86,7 @@ msgstr "Descripción"
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__display_name
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_config_parameter__display_name
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_group__display_name
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_lap__display_name
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__display_name
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress_line__display_name
@@ -113,8 +117,19 @@ msgid "East"
 msgstr "Este"
 
 #. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__group_id
+msgid "Group"
+msgstr "Grupo"
+
+#. module: c4o_territories
+#: model:ir.actions.act_window,name:c4o_territories.action_groups
+msgid "Groups"
+msgstr "Grupos"
+
+#. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__id
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_config_parameter__id
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_group__id
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_lap__id
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__id
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress_line__id
@@ -156,6 +171,7 @@ msgstr "Vueltas"
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__write_uid
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_config_parameter__write_uid
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_group__write_uid
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_lap__write_uid
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__write_uid
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress_line__write_uid
@@ -166,6 +182,7 @@ msgstr "Última vez modificado por"
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__write_date
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_config_parameter__write_date
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_group__write_date
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_lap__write_date
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__write_date
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress_line__write_date
@@ -186,6 +203,7 @@ msgstr "Calle N."
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__name
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_config_parameter__name
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_group__name
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_lap__name
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__name
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress_line__name
@@ -278,6 +296,11 @@ msgid "Territories"
 msgstr "Territorios"
 
 #. module: c4o_territories
+#: model:ir.model,name:c4o_territories.model_territory_group
+msgid "Territories Groups"
+msgstr "Grupo de Territorios"
+
+#. module: c4o_territories
 #: model:ir.model,name:c4o_territories.model_territory_progress
 msgid "Territories Progress"
 msgstr "Progreso de territorio"
@@ -317,6 +340,11 @@ msgstr "Calles del territorio"
 #: model:ir.model.fields.selection,name:c4o_territories.selection__territory_progress__state__pending
 msgid "To Work"
 msgstr "Por trabajar"
+
+#. module: c4o_territories
+#: model_terms:ir.ui.view,arch_db:c4o_territories.territories_tree_view
+msgid "Total"
+msgstr "Total"
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_street__w_street

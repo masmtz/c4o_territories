@@ -37,13 +37,32 @@ class TerritoryStreet(models.Model):
     @api.depends("n_street", "s_street", "w_street", "e_street")
     def compute_between_streets(self):
         for rec in self:
-            str_bstreets = ""
+            # str_bstreets = ""
+            str_street_1 = ""
+            str_street_2 = ""
             if rec.w_street and rec.e_street:
-                str_bstreets = _("Between " + rec.w_street + " and " + rec.e_street)
+                str_street_1 = rec.e_street
+                str_street_2 = rec.w_street
+                # str_bstreets = _(
+                #     "Between %(w_street)s and %(e_street)s",
+                #     w_street=rec.e_street,
+                #     e_street=rec.w_street,
+                # )
 
             if rec.n_street and rec.s_street:
-                str_bstreets = _("Between " + rec.n_street + " and " + rec.s_street)
-            rec.between_streets = str_bstreets
+                str_street_1 = rec.n_street
+                str_street_2 = rec.s_street
+                # str_bstreets = _(
+                #     "Between %(n_street)s and %(n_street)s",
+                #     w_street=rec.n_street,
+                #     e_street=rec.s_street,
+                # )
+            # rec.between_streets = str_bstreets
+            rec.between_streets =  = _(
+                    "Between %(street_1)s and %(street_2)s",
+                    street_1=str_street_1,
+                    street_2=str_street_2,
+                )
 
 
 class TerritoryGroup(models.Model):
