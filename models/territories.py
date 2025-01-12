@@ -58,11 +58,11 @@ class TerritoryStreet(models.Model):
                 #     e_street=rec.s_street,
                 # )
             # rec.between_streets = str_bstreets
-            rec.between_streets =  = _(
-                    "Between %(street_1)s and %(street_2)s",
-                    street_1=str_street_1,
-                    street_2=str_street_2,
-                )
+            rec.between_streets = _(
+                "Between %(street_1)s and %(street_2)s",
+                street_1=str_street_1,
+                street_2=str_street_2,
+            )
 
 
 class TerritoryGroup(models.Model):
