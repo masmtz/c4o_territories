@@ -21,6 +21,29 @@ class TerritoryLap(models.Model):
         ]
     )
     lap_warning = fields.Char()
+    territory_progress_ids = fields.One2many("territory.progress", "lap_id")
+
+    def start_lap(self):
+        territory_ids = self.env["preaching.territory"].search([(1, "=", 1)])
+        territory_progress = self.env['territory.progress']
+        for territory in territory_ids:
+            street_lines=[]
+            for street in territory.street_lines:
+                street_values = {
+                    'name': street.name,
+                    'sidewalk': street.sidewalk,
+                    'between_streets': street.between_streets,
+                    'num_houses': street.between_streets,
+                }
+                street_lines.append(street_values)
+            territory_progress.create({
+                'name':,
+                'territory_id': territory.id,
+                'lap_id': self.id,
+                'state': 'pending',
+                'street_lines': ((6,0,street_lines)),
+                })
+
 
 
 class TerritoryProgress(models.Model):
