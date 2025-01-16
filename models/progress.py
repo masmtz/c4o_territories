@@ -46,7 +46,7 @@ class TerritoryLap(models.Model):
                             "progress_id": prog_id.id,
                             "sidewalk": street.sidewalk,
                             "between_streets": street.between_streets,
-                            "num_houses": street.between_streets,
+                            "num_houses": street.num_houses,
                         }
                     )
 
