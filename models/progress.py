@@ -27,24 +27,28 @@ class TerritoryLap(models.Model):
         territory_ids = self.env["preaching.territory"].search([(1, "=", 1)])
         territory_progress = self.env["territory.progress"]
         for territory in territory_ids:
-            street_lines = []
-            for street in territory.street_lines:
-                street_values = {
-                    "name": street.name,
-                    "sidewalk": street.sidewalk,
-                    "between_streets": street.between_streets,
-                    "num_houses": street.between_streets,
-                }
-                street_lines.append(street_values)
-            territory_progress.create(
+            # FOR EVERY DATA TERRITORY CREATE ONE PROGRESS TERRITORY
+            prog_id = territory_progress.create(
                 {
                     "name": territory.name,
                     "territory_id": territory.id,
                     "lap_id": self.id,
                     "state": "pending",
-                    "street_lines": [(6, 0, street_lines)],
                 }
             )
+            # CREATE LINE STREET
+            if prog_id:
+                progress_line = self.env["territory.progress.line"]
+                for street in territory.street_lines:
+                    progress_line.create(
+                        {
+                            "name": street.name,
+                            "progress_id": prog_id.id,
+                            "sidewalk": street.sidewalk,
+                            "between_streets": street.between_streets,
+                            "num_houses": street.between_streets,
+                        }
+                    )
 
 
 class TerritoryProgress(models.Model):
