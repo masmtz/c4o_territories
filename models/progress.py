@@ -42,7 +42,7 @@ class TerritoryLap(models.Model):
                     "territory_id": territory.id,
                     "lap_id": self.id,
                     "state": "pending",
-                    "street_lines": ((6, 0, street_lines)),
+                    "street_lines": [(6, 0, street_lines)],
                 }
             )
 
