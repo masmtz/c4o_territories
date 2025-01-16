@@ -25,25 +25,26 @@ class TerritoryLap(models.Model):
 
     def start_lap(self):
         territory_ids = self.env["preaching.territory"].search([(1, "=", 1)])
-        territory_progress = self.env['territory.progress']
+        territory_progress = self.env["territory.progress"]
         for territory in territory_ids:
-            street_lines=[]
+            street_lines = []
             for street in territory.street_lines:
                 street_values = {
-                    'name': street.name,
-                    'sidewalk': street.sidewalk,
-                    'between_streets': street.between_streets,
-                    'num_houses': street.between_streets,
+                    "name": street.name,
+                    "sidewalk": street.sidewalk,
+                    "between_streets": street.between_streets,
+                    "num_houses": street.between_streets,
                 }
                 street_lines.append(street_values)
-            territory_progress.create({
-                'name':,
-                'territory_id': territory.id,
-                'lap_id': self.id,
-                'state': 'pending',
-                'street_lines': ((6,0,street_lines)),
-                })
-
+            territory_progress.create(
+                {
+                    "name": territory.name,
+                    "territory_id": territory.id,
+                    "lap_id": self.id,
+                    "state": "pending",
+                    "street_lines": ((6, 0, street_lines)),
+                }
+            )
 
 
 class TerritoryProgress(models.Model):
