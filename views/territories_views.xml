@@ -26,6 +26,37 @@
             <field name="target">current</field>
         </record>
 
+        <!-- menu Groups -->
+        <menuitem id="groups_menu" name="Groups" sequence="3" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_config_menu" action="c4o_territories.action_groups"/>
+
+        <!-- Groups form view -->
+        <record id="groups_form_view" model="ir.ui.view">
+            <field name="name">groups.form.view</field>
+            <field name="model">territory.group</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box"/>
+                        <div class="oe_title mb24">
+                            <h1>
+                                <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="e.g. Group 1" required="1"/>
+                            </h1>
+                        </div>
+                        <notebook>
+                            <page name="territories" string="Territories">
+                                <field name="territory_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="num_houses"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
 
         <!-- Territories tree view -->
         <record id="territories_tree_view" model="ir.ui.view">

@@ -70,6 +70,7 @@ class TerritoryGroup(models.Model):
     _description = "Territories Groups"
 
     name = fields.Char()
+    territory_ids = fields.One2many("preaching.territory", "group_id")
 
 
 class TerritoryConfigParamenter(models.Model):
