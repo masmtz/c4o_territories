@@ -49,6 +49,7 @@ class TerritoryLap(models.Model):
                             "num_houses": street.num_houses,
                         }
                     )
+        self.state = "progress"
 
 
 class TerritoryProgress(models.Model):
@@ -58,6 +59,7 @@ class TerritoryProgress(models.Model):
     name = fields.Char()
     notes = fields.Text()
     territory_id = fields.Many2one("preaching.territory")
+    group_id = fields.Many2one(related="territory_id.group_id")
     lap_id = fields.Many2one("territory.lap")
     state = fields.Selection(
         [
@@ -71,6 +73,12 @@ class TerritoryProgress(models.Model):
     meeting_point = fields.Char()
     street_lines = fields.One2many("territory.progress.line", "progress_id")
     progress_warning = fields.Char()
+    responsible = fields.Char()
+
+    def mark_done(self):
+        for line in self.street_lines:
+            line.write({"done": 1})
+        self.write({'state': "done". "date_end": date.today()})
 
 
 class TerritoryProgressLine(models.Model):

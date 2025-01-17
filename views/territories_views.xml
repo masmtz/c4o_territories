@@ -140,9 +140,10 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
+                        <button name="mark_done" string="Completed" type="object" invisible="state == 'done'"/>
                         <field name="state" widget="statusbar" statusbar_visible="pending,partially,done"/>
                     </header>
-                    <div class="alert alert-warning" role="alert" invisible="progress_warning == ''">
+                    <div class="alert alert-warning" role="alert" invisible="not progress_warning">
                         <field name="progress_warning"/>
                     </div>
                     <sheet>
@@ -151,18 +152,19 @@
                             <h1>
                                 <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="e.g. #18" required="1"/>
                             </h1>
-                            <div class="o_row">
-                                <field name="lap_id"/>
-                            </div>
                         </div>
                         <group>
                             <group>
-                                <field name="notes" widget="html"/>
+                                <field name="responsible"/>
+                                <field name="lap_id"/>
+                                <field name="group_id"/>
                             </group>
                             <group>
                                 <field name="date_start"/>
                                 <field name="date_end"/>
                             </group>
+                            <label for="notes"/>
+                            <field name="notes" widget="html"/>
                         </group>
                         <notebook>
                             <page name="streets" string="Streets">
@@ -215,10 +217,10 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="start_lap" string="Start Lap" type="object"/>
+                        <button name="start_lap" string="Start Lap" type="object" invisible="not state == 'draft'"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,progress,pause,done"/>
                     </header>
-                    <div class="alert alert-warning" role="alert" invisible="lap_warning == ''">
+                    <div class="alert alert-warning" role="alert" invisible="not lap_warning">
                         <field name="lap_warning"/>
                     </div>
                     <sheet>
