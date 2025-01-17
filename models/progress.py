@@ -76,9 +76,12 @@ class TerritoryProgress(models.Model):
     responsible = fields.Char()
 
     def mark_done(self):
-        for line in self.street_lines:
-            line.write({"done": 1})
-        self.write({"state": "done", "date_end": date.today()})
+        if self.responsible:
+            for line in self.street_lines:
+                line.write({"done": 1})
+            self.write({"state": "done", "date_end": date.today()})
+        else:
+            raise UserError(_"You need to define the responsible first")
 
 
 class TerritoryProgressLine(models.Model):
