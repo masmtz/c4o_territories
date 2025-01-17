@@ -81,7 +81,7 @@ class TerritoryProgress(models.Model):
                 line.write({"done": 1})
             self.write({"state": "done", "date_end": date.today()})
         else:
-            raise UserError(_"You need to define the responsible first")
+            raise UserError(_("You need to define the responsible first"))
 
 
 class TerritoryProgressLine(models.Model):
