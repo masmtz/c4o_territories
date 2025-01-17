@@ -78,7 +78,7 @@ class TerritoryProgress(models.Model):
     def mark_done(self):
         for line in self.street_lines:
             line.write({"done": 1})
-        self.write({'state': "done". "date_end": date.today()})
+        self.write({"state": "done", "date_end": date.today()})
 
 
 class TerritoryProgressLine(models.Model):
