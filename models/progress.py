@@ -83,6 +83,13 @@ class TerritoryProgress(models.Model):
         else:
             raise UserError(_("You need to define the responsible first"))
 
+    @api.depends("street_lines")
+    def compute_state_partial(self):
+        total_lines = len(self.street_lines)
+        done_lines = len(self.street_lines.filtered(lambda l: l.done))
+        if not done_lines == total_lines:
+            self.state = "partially"
+
 
 class TerritoryProgressLine(models.Model):
     _name = "territory.progress.line"
