@@ -200,7 +200,7 @@
                         <notebook>
                             <page name="streets" string="Streets">
                                 <field name="street_lines">
-                                    <tree>
+                                    <tree create="0">
                                         <field name="name"/>
                                         <field name="sidewalk"/>
                                         <field name="between_streets"/>
@@ -272,7 +272,7 @@
                         <notebook>
                             <page name="territories" string="Territories">
                                 <field name="territory_progress_ids">
-                                    <tree>
+                                    <tree create="0">
                                         <field name="name"/>
                                         <field name="date_start"/>
                                         <field name="date_end"/>
@@ -283,6 +283,50 @@
                         </notebook>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+        <!-- Laps kanban view -->
+        <record id="territory_lap_kanban_view" model="ir.ui.view">
+            <field name="name">territory.lap.kanban.view</field>
+            <field name="model">territory.lap</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" sample="1" quick_create="false">
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                    <!--<progressbar field="activity_state" colors="{&quot;planned&quot;: &quot;success&quot;, &quot;today&quot;: &quot;warning&quot;, &quot;overdue&quot;: &quot;danger&quot;}"/>-->
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong class="o_kanban_record_title">
+                                            <span t-out="record.name"/>
+                                        </strong>
+                                    </div>
+                                    <!--<strong>
+                                        <field name="state" />
+                                    </strong>-->
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <span>
+                                            Fecha de inicio <t t-out="record.date_start.value"/>
+                                        </span>
+                                        <span>
+                                            - Fecha fin <t t-out="record.date_end.value"/>
+                                        </span>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="state" widget="label_selection" options="{'classes': {'draft': 'info', 'progress': 'default', 'pause':'warning', 'done': 'success'}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
             </field>
         </record>
 
