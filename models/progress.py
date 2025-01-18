@@ -83,13 +83,13 @@ class TerritoryProgress(models.Model):
         else:
             raise UserError(_("You need to define the responsible first"))
 
-    def write(self, vals):
-        res = super(TerritoryProgress, self).write(vals)
-        total_lines = len(self.street_lines)
-        done_lines = len(self.street_lines.filtered(lambda l: l.done))
-        if not done_lines == total_lines:
-            self.state = "partially"
-        return res
+    # def write(self, vals):
+    #     res = super(TerritoryProgress, self).write(vals)
+    #     total_lines = len(self.street_lines)
+    #     done_lines = len(self.street_lines.filtered(lambda l: l.done))
+    #     if not done_lines == total_lines:
+    #         self.state = "partially"
+    #     return res
 
 
 class TerritoryProgressLine(models.Model):
