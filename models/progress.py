@@ -61,7 +61,7 @@ class TerritoryProgress(models.Model):
     name = fields.Char()
     notes = fields.Text()
     territory_id = fields.Many2one("preaching.territory")
-    group_id = fields.Many2one("territory_id.group_id")
+    group_id = fields.Many2one("territory.group")
     num_houses = fields.Integer()
     lap_id = fields.Many2one("territory.lap")
     state = fields.Selection(
