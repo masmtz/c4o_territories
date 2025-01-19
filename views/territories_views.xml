@@ -149,6 +149,7 @@
                     <field name="name"/>
                     <field name="date_start"/>
                     <field name="date_end"/>
+                    <field name="responsible"/>
                     <field name="state" decoration-success="state == 'done'" decoration-primary="state == 'partially'" decoration-warning="state == 'pending'" widget="badge"/>
                 </tree>
             </field>
@@ -189,10 +190,11 @@
                         <group>
                             <group>
                                 <field name="responsible"/>
-                                <field name="lap_id"/>
-                                <field name="group_id"/>
+                                <field name="lap_id" readonly="1"/>
+                                <field name="group_id" readonly="1"/>
                             </group>
                             <group>
+                                <field name="num_houses" readonly="1"/>
                                 <field name="date_start"/>
                                 <field name="date_end"/>
                             </group>

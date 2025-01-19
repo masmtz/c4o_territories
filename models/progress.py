@@ -33,6 +33,8 @@ class TerritoryLap(models.Model):
                     "name": territory.name,
                     "territory_id": territory.id,
                     "lap_id": self.id,
+                    "num_houses": territory.num_houses,
+                    "group_id": territory.group_id.id,
                     "state": "pending",
                 }
             )
@@ -59,7 +61,8 @@ class TerritoryProgress(models.Model):
     name = fields.Char()
     notes = fields.Text()
     territory_id = fields.Many2one("preaching.territory")
-    group_id = fields.Many2one(related="territory_id.group_id")
+    group_id = fields.Many2one("territory_id.group_id")
+    num_houses = fields.Integer()
     lap_id = fields.Many2one("territory.lap")
     state = fields.Selection(
         [
