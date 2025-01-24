@@ -145,7 +145,7 @@
             <field name="name">territory.progress.tree.view</field>
             <field name="model">territory.progress</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree create="0">
                     <field name="name"/>
                     <field name="date_start"/>
                     <field name="date_end"/>
@@ -237,7 +237,7 @@
             <field name="name">territory.progress.form.view</field>
             <field name="model">territory.progress</field>
             <field name="arch" type="xml">
-                <form>
+                <form create="0">
                     <header>
                         <button name="mark_done" string="Completed" type="object" invisible="state == 'done'"/>
                         <field name="state" widget="statusbar" statusbar_visible="pending,partially,done"/>
