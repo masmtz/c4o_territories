@@ -174,7 +174,7 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="name" string="Territory" filter_domain="[('name', 'ilike', self)]"/>
-                    <field name="Responsible" filter_domain="[('responsible', 'ilike', self)]"/>
+                    <field name="responsible" string="Responsible" filter_domain="[('responsible', 'ilike', self)]"/>
                     <field name="street_lines" string="Streets" filter_domain="['|',('street_lines.name', 'ilike', self),('street_lines.between_streets','ilike',self)]"/>
                     
                     <filter string="Done" domain="[('state', '=', 'done')]" name="done_territories"/>
