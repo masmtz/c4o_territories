@@ -159,13 +159,78 @@
         <record id="action_progress" model="ir.actions.act_window">
             <field name="name">Progress</field>
             <field name="res_model">territory.progress</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,kanban,graph,calendar,form</field>
             <field name="view_id" ref="territory_progress_tree_view"/>
             <field name="target">current</field>
         </record>
 
         <!-- menu Progress -->
         <menuitem id="territory_progress_menu" name="Progress" sequence="1" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu" action="c4o_territories.action_progress"/>
+
+        <!-- Progress search view -->
+        <record id="territory_progress_search_view" model="ir.ui.view">
+            <field name="name">territory.progress.search.view</field>
+            <field name="model">territory.progress</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Territory" filter_domain="[('name', 'ilike', self)]"/>
+                    <field name="Responsible" filter_domain="[('responsible', 'ilike', self)]"/>
+                    <field name="street_lines" string="Streets" filter_domain="['|',('street_lines.name', 'ilike', self),('street_lines.between_streets','ilike',self)]"/>
+                    
+                    <filter string="Done" domain="[('state', '=', 'done')]" name="done_territories"/>
+                    <filter string="Partially Worked" domain="[('state', '=', 'partially')]" name="partially_territories"/>
+                    <filter string="To Work" domain="[('state', '=', 'pending')]" name="pending_territories"/>
+                    
+                    <group expand="0" string="Group By">
+                        <filter string="Estate" name="state_group" domain="[]" context="{'group_by': 'state'}"/>
+                        <filter name="responsible_group" string="Responsible" domain="[]" context="{'group_by': 'responsible'}"/>
+                        <filter name="territory_group_group" string="Group" domain="[]" context="{'group_by': 'group_id'}"/>
+                        <filter string="Close Date" name="close_month" domain="[]" context="{'group_by': 'date_end'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Progress kanban view -->
+        <record id="territory_progress_kanban_view" model="ir.ui.view">
+            <field name="name">territory.progress.kanban.view</field>
+            <field name="model">territory.progress</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" sample="1" quick_create="false">
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                    <field name="responsible"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                    <strong>
+                                        <span t-out="record.responsible.value"/>
+                                    </strong>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <span>
+                                            <field name="date_end"/>
+                                        </span>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="state" widget="label_selection" options="{'classes': {'pending': 'info', 'partially':'warning', 'done': 'success'}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 
         <!-- Progress form view -->
         <record id="territory_progress_form_view" model="ir.ui.view">
