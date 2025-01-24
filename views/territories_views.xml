@@ -196,7 +196,7 @@
             <field name="name">territory.progress.kanban.view</field>
             <field name="model">territory.progress</field>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_mobile" sample="1" quick_create="false">
+                <kanban class="o_kanban_mobile" sample="1" quick_create="false" create="0">
                     <field name="name"/>
                     <field name="date_start"/>
                     <field name="date_end"/>
@@ -275,6 +275,7 @@
                                         <field name="between_streets"/>
                                         <field name="done"/>
                                     </tree>
+                                    <form create="0"/>
                                 </field>
                             </page>
                         </notebook>
