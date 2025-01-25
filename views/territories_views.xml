@@ -239,6 +239,19 @@
             </field>
         </record>
 
+        <!-- Progress calendar view -->
+        <record id="territory_progress_calendar_view" model="ir.ui.view">
+            <field name="name">territory.progress.calendar.view</field>
+            <field name="model">territory.progress</field>
+            <field name="arch" type="xml">
+                <calendar string="Progress" create="0" mode="month" date_start="date_end" color="name" event_limit="7" quick_create="0">
+                    <field name="state" filters="1"/>
+                    <field name="name" string="Territory"/>
+                    <field name="responsible"/>
+                </calendar>
+            </field>
+        </record>
+
         <!-- Progress form view -->
         <record id="territory_progress_form_view" model="ir.ui.view">
             <field name="name">territory.progress.form.view</field>
