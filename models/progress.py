@@ -77,6 +77,7 @@ class TerritoryProgress(models.Model):
     street_lines = fields.One2many("territory.progress.line", "progress_id")
     progress_warning = fields.Char()
     responsible = fields.Char()
+    image = fields.Binary(related="territory_id.image")
 
     def mark_done(self):
         if self.responsible:
@@ -85,6 +86,13 @@ class TerritoryProgress(models.Model):
             self.write({"state": "done", "date_end": date.today()})
         else:
             raise UserError(_("You need to define the responsible first"))
+
+    @api.onchange("street_lines")
+    def onchange_street_lines(self):
+        total_lines = len(self.street_lines)
+        done_lines = len(self.street_lines.filtered(lambda l: l.done))
+        if not done_lines == total_lines:
+            self.state = "partially"
 
     # def write(self, vals):
     #     res = super(TerritoryProgress, self).write(vals)

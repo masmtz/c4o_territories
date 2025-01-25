@@ -5,6 +5,7 @@
 
         <menuitem id="territories_config_menu" name="Configuration" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu"/>
 
+        <!-- ..........GROUPS.......... -->
 
         <!-- Groups tree view -->
         <record id="groups_tree_view" model="ir.ui.view">
@@ -56,6 +57,8 @@
                 </form>
             </field>
         </record>
+
+        <!-- ..........TERRITORIES.......... -->
 
 
         <!-- Territories tree view -->
@@ -133,12 +136,16 @@
                                     </form>
                                 </field>
                             </page>
+                            <page name="image" string="Image">
+                                <field name="image" widget="image"/>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
             </field>
         </record>
 
+        <!-- ..........PROGRESS.......... -->
 
         <!-- Progress tree view -->
         <record id="territory_progress_tree_view" model="ir.ui.view">
@@ -249,34 +256,37 @@
                         <div class="oe_button_box" name="button_box"/>
                         <div class="oe_title mb24">
                             <h1>
-                                <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="e.g. #18" required="1"/>
+                                <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="e.g. #18" readonly="1"/>
                             </h1>
                         </div>
                         <group>
                             <group>
-                                <field name="responsible"/>
+                                <field name="responsible" readonly="state == 'done'"/>
                                 <field name="lap_id" readonly="1"/>
                                 <field name="group_id" readonly="1"/>
                             </group>
                             <group>
                                 <field name="num_houses" readonly="1"/>
-                                <field name="date_start"/>
-                                <field name="date_end"/>
+                                <field name="date_start" readonly="state == 'done'"/>
+                                <field name="date_end" readonly="state == 'done'"/>
                             </group>
                             <label for="notes"/>
-                            <field name="notes" widget="html"/>
+                            <field name="notes" widget="html" readonly="state == 'done'"/>
                         </group>
                         <notebook>
                             <page name="streets" string="Streets">
                                 <field name="street_lines">
-                                    <tree create="0">
-                                        <field name="name"/>
-                                        <field name="sidewalk"/>
-                                        <field name="between_streets"/>
-                                        <field name="done"/>
+                                    <tree create="0"  editable="bottom">
+                                        <field name="name" readonly="1"/>
+                                        <field name="sidewalk" readonly="1"/>
+                                        <field name="between_streets" readonly="1"/>
+                                        <field name="done" readonly="parent.state == 'done'"/>
                                     </tree>
                                     <form create="0"/>
                                 </field>
+                            </page>
+                            <page name="image" string="Image">
+                                <field name="image" widget="image"/>
                             </page>
                         </notebook>
                     </sheet>
@@ -284,6 +294,7 @@
             </field>
         </record>
 
+        <!-- ..........LAPS.......... -->
 
         <!-- Laps tree view -->
         <record id="territory_lap_tree_view" model="ir.ui.view">
