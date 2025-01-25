@@ -93,6 +93,8 @@ class TerritoryProgress(models.Model):
         done_lines = len(self.street_lines.filtered(lambda l: l.done))
         if not done_lines == total_lines:
             self.state = "partially"
+        if not done_lines:
+            self.state = "pending"
 
     # def write(self, vals):
     #     res = super(TerritoryProgress, self).write(vals)
