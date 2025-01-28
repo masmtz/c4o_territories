@@ -17,3 +17,8 @@ class PreachingAssignment(models.Model):
     )
     assignment_warning = fields.Char()
     notes = fields.Text()
+
+    @api.model
+    def create(self, vals):
+        vals["name"] = vals["user_id"]
+        return super(PreachingAssignment, self).create(vals)
