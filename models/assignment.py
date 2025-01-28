@@ -25,6 +25,9 @@ class PreachingAssignment(models.Model):
         return super(PreachingAssignment, self).create(vals)
 
     def write(self, vals):
-        user_id = self.env["res.users"].browse(vals["user_id"])
+        user_id = user_id = self.user_id
+        if "user_id" in vals:
+            user_id = self.env["res.users"].browse(vals["user_id"])
+
         vals["name"] = user_id.name
         return super(PreachingAssignment, self).write(vals)
