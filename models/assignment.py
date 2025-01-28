@@ -20,9 +20,11 @@ class PreachingAssignment(models.Model):
 
     @api.model
     def create(self, vals):
-        vals["name"] = vals["user_id"]["name"]
+        user_id = self.env["res.users"].browse(vals["user_id"])
+        vals["name"] = user_id.name
         return super(PreachingAssignment, self).create(vals)
 
     def write(self, vals):
-        vals["name"] = vals["user_id"]["name"]
+        user_id = self.env["res.users"].browse(vals["user_id"])
+        vals["name"] = user_id.name
         return super(PreachingAssignment, self).write(vals)
