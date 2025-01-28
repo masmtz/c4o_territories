@@ -5,4 +5,5 @@ access_territory_lap,territory_lap,model_territory_lap,,1,1,1,0
 access_territory_progress,territory_progress,model_territory_progress,,1,1,1,0
 access_territory_progress_line,territory_progress_line,model_territory_progress_line,,1,1,1,0
 access_territory_group,territory_group,model_territory_group,,1,1,1,0
-access_preaching_assignment,preaching_assignment,model_preaching_assignment,,1,1,1,0
+access_preaching_assignment_user,preaching_assignment_user,model_preaching_assignment,c40_territories.territories_user,1,1,1,0
+access_preaching_assignment_admin,preaching_assignment_admin,model_preaching_assignment,c40_territories.territories_admin,1,1,1,1
