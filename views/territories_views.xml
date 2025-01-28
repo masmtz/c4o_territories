@@ -431,10 +431,8 @@
             <field name="arch" type="xml">
                 <tree create="0">
                     <field name="name"/>
-                    <field name="date_start"/>
-                    <field name="date_end"/>
-                    <field name="responsible"/>
-                    <field name="state" decoration-success="state == 'done'" decoration-primary="state == 'partially'" decoration-warning="state == 'pending'" widget="badge"/>
+                    <field name="user_id"/>
+                    <field name="date"/>
                 </tree>
             </field>
         </record>
