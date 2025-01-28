@@ -22,3 +22,7 @@ class PreachingAssignment(models.Model):
     def create(self, vals):
         vals["name"] = vals["user_id"]
         return super(PreachingAssignment, self).create(vals)
+
+    def write(self, vals):
+        vals["name"] = vals["user_id"]
+        return super(PreachingAssignment, self).write(vals)
