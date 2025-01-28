@@ -20,9 +20,9 @@ class PreachingAssignment(models.Model):
 
     @api.model
     def create(self, vals):
-        vals["name"] = vals["user_id"]
+        vals["name"] = vals["user_id"]["name"]
         return super(PreachingAssignment, self).create(vals)
 
     def write(self, vals):
-        vals["name"] = vals["user_id"]
+        vals["name"] = vals["user_id"]["name"]
         return super(PreachingAssignment, self).write(vals)
