@@ -69,6 +69,7 @@
                 <tree>
                     <field name="name"/>
                     <field name="num_houses" sum="Total"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
@@ -91,6 +92,9 @@
             <field name="model">preaching.territory</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,applied"/>
+                    </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box"/>
                         <div class="oe_title mb24">
@@ -417,6 +421,35 @@
                 </kanban>
             </field>
         </record>
+
+        <!-- ..........ASSIGNMENT.......... -->
+
+        <!-- Assignment tree view -->
+        <record id="preaching_assignment_tree_view" model="ir.ui.view">
+            <field name="name">preaching.assignment.tree.view</field>
+            <field name="model">preaching.assignment</field>
+            <field name="arch" type="xml">
+                <tree create="0">
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="responsible"/>
+                    <field name="state" decoration-success="state == 'done'" decoration-primary="state == 'partially'" decoration-warning="state == 'pending'" widget="badge"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- action Assignment -->
+        <record id="action_assignment" model="ir.actions.act_window">
+            <field name="name">Assignment</field>
+            <field name="res_model">preaching.assignment</field>
+            <field name="view_mode">tree,calendar,form</field>
+            <field name="view_id" ref="preaching_assignment_tree_view"/>
+            <field name="target">current</field>
+        </record>
+
+        <!-- menu Assignment -->
+        <menuitem id="assignment_menu" name="Assignment" sequence="2" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu" action="c4o_territories.action_assignment"/>
 
     </data>
 </odoo>

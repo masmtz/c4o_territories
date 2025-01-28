@@ -10,15 +10,16 @@ class TerritoryLap(models.Model):
     _description = "Territory Laps"
 
     name = fields.Char()
-    date_start = fields.Date()
-    date_end = fields.Date()
+    date_start = fields.Date(string="Start date", tracking=True)
+    date_end = fields.Date(string="End date", tracking=True)
     state = fields.Selection(
         [
             ("draft", "Draft"),
             ("progress", "In Progress"),
             ("pause", "In Pause"),
             ("done", "Done"),
-        ]
+        ],
+        tracking=True,
     )
     lap_warning = fields.Char()
     territory_progress_ids = fields.One2many("territory.progress", "lap_id")
@@ -62,21 +63,24 @@ class TerritoryProgress(models.Model):
     notes = fields.Text()
     territory_id = fields.Many2one("preaching.territory")
     group_id = fields.Many2one("territory.group")
-    num_houses = fields.Integer()
+    num_houses = fields.Integer(string="Num. Houses", tracking=True)
     lap_id = fields.Many2one("territory.lap")
     state = fields.Selection(
         [
             ("pending", "To Work"),
             ("partially", "Partially Worked"),
             ("done", "Completed"),
-        ]
+        ],
+        tracking=True,
     )
-    date_start = fields.Date()
-    date_end = fields.Date()
-    meeting_point = fields.Char()
-    street_lines = fields.One2many("territory.progress.line", "progress_id")
+    date_start = fields.Date(string="Start date", tracking=True)
+    date_end = fields.Date(string="End date", tracking=True)
+    meeting_point = fields.Char(string="Meeting point")
+    street_lines = fields.One2many(
+        "territory.progress.line", "progress_id", string="Street lines", tracking=True
+    )
     progress_warning = fields.Char()
-    responsible = fields.Char()
+    responsible = fields.Char(string="Responsible", tracking=True)
     image = fields.Binary(related="territory_id.image")
 
     def mark_done(self):
@@ -115,6 +119,6 @@ class TerritoryProgressLine(models.Model):
         [("n", "North"), ("s", "South"), ("e", "East"), ("w", "West")]
     )
     between_streets = fields.Char()
-    num_houses = fields.Integer()
-    done = fields.Boolean(default=False)
+    num_houses = fields.Integer(string="Num. Houses")
+    done = fields.Boolean(default=False, string="Done", tracking=True)
     notes = fields.Text()

@@ -15,6 +15,9 @@ class PreachingTerritory(models.Model):
     image = fields.Binary()
     num_houses = fields.Integer()
     group_id = fields.Many2one("territory.group")
+    state = fields.Selection(
+        [("draft", "Draft"), ("applied", "Applied")], string="", tracking=True
+    )
 
 
 class TerritoryStreet(models.Model):

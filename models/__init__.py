@@ -2,3 +2,4 @@
 
 from . import territories
 from . import progress
+from . import assignment
