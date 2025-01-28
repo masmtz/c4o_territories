@@ -11,4 +11,9 @@ class PreachingAssignment(models.Model):
 
     name = fields.Char()
     user_id = fields.Many2one("res.users", string="Responsible", tracking=True)
-    date = fields.Date(string="Date assignment", tracking=True)
+    date = fields.Datetime(string="Date assignment", tracking=True)
+    assigment_type = fields.Selection(
+        [("in_person", "In Person"), ("zoom", "Zoom")],
+    )
+    assignment_warning = fields.Char()
+    notes = fields.Text()

@@ -454,10 +454,47 @@
             <field name="name">preaching.assignment.calendar.view</field>
             <field name="model">preaching.assignment</field>
             <field name="arch" type="xml">
-                <calendar string="Assignment" create="0" mode="month" date_start="date" color="user_id" event_limit="7" quick_create="0">
+                <calendar string="Assignment" create="1" mode="month" date_start="date" color="user_id" event_limit="7" quick_create="0">
                     <field name="date"/>
                     <field name="user_id"/>
                 </calendar>
+            </field>
+        </record>
+
+        <!-- Assignment form view -->
+        <record id="preaching_form_view" model="ir.ui.view">
+            <field name="name">preaching.assignment.form.view</field>
+            <field name="model">preaching.assignment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                    </header>
+                    <div class="alert alert-warning" role="alert" invisible="not assignment_warning">
+                        <field name="assignment_warning"/>
+                    </div>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box"/>
+                        <div class="oe_title mb24">
+                            <h1>
+                                <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="New" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="user_id" required="1"/>
+                            </group>
+                            <group>
+                                <field name="date" required="1"/>
+                                <field name="assigment_type" required="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="notes" string="Notes">
+                                <field name="notes"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
             </field>
         </record>
 
