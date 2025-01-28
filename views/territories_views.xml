@@ -449,5 +449,17 @@
         <!-- menu Assignment -->
         <menuitem id="assignment_menu" name="Assignment" sequence="2" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu" action="c4o_territories.action_assignment"/>
 
+        <!-- Assignment calendar view -->
+        <record id="preaching_assignment_calendar_view" model="ir.ui.view">
+            <field name="name">preaching.assignment.calendar.view</field>
+            <field name="model">preaching.assignment</field>
+            <field name="arch" type="xml">
+                <calendar string="Assignment" create="0" mode="month" date_start="date" color="user_id" event_limit="7" quick_create="0">
+                    <field name="date"/>
+                    <field name="user_id"/>
+                </calendar>
+            </field>
+        </record>
+
     </data>
 </odoo>
