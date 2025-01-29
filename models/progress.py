@@ -65,6 +65,7 @@ class TerritoryProgress(models.Model):
     group_id = fields.Many2one("territory.group")
     num_houses = fields.Integer(string="Num. Houses", tracking=True)
     lap_id = fields.Many2one("territory.lap")
+    assignment_id = fields.Many2one("preaching.assignment")
     state = fields.Selection(
         [
             ("pending", "To Work"),
