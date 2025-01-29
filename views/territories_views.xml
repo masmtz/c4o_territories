@@ -5,6 +5,9 @@
 
         <menuitem id="territories_config_menu" name="Configuration" sequence="2" groups="c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu"/>
 
+        <!-- menu Preaching -->
+        <menuitem id="territory_preaching_menu" name="Preaching" sequence="1" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu"/>
+
         <!-- ..........GROUPS.......... -->
 
         <!-- Groups tree view -->
@@ -176,7 +179,7 @@
         </record>
 
         <!-- menu Progress -->
-        <menuitem id="territory_progress_menu" name="Progress" sequence="1" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu" action="c4o_territories.action_progress"/>
+        <menuitem id="territory_progress_menu" name="Progress" sequence="2" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territory_preaching_menu" action="c4o_territories.action_progress"/>
 
         <!-- Progress search view -->
         <record id="territory_progress_search_view" model="ir.ui.view">
@@ -441,13 +444,13 @@
         <record id="action_assignment" model="ir.actions.act_window">
             <field name="name">Assignment</field>
             <field name="res_model">preaching.assignment</field>
-            <field name="view_mode">tree,calendar,form</field>
+            <field name="view_mode">calendar,tree,form</field>
             <field name="view_id" ref="preaching_assignment_tree_view"/>
             <field name="target">current</field>
         </record>
 
         <!-- menu Assignment -->
-        <menuitem id="assignment_menu" name="Assignment" sequence="2" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territories_main_menu" action="c4o_territories.action_assignment"/>
+        <menuitem id="assignment_menu" name="Assignment" sequence="1" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territory_preaching_menu" action="c4o_territories.action_assignment"/>
 
         <!-- Assignment calendar view -->
         <record id="preaching_assignment_calendar_view" model="ir.ui.view">
