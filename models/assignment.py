@@ -17,6 +17,7 @@ class PreachingAssignment(models.Model):
     )
     assignment_warning = fields.Char()
     notes = fields.Text()
+    territory_progress_ids = fields.One2many("territory.progress")
 
     @api.model
     def create(self, vals):

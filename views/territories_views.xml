@@ -444,7 +444,7 @@
         <record id="action_assignment" model="ir.actions.act_window">
             <field name="name">Assignment</field>
             <field name="res_model">preaching.assignment</field>
-            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_mode">tree,form</field>
             <field name="view_id" ref="preaching_assignment_tree_view"/>
             <field name="target">current</field>
         </record>
@@ -492,6 +492,16 @@
                             </group>
                         </group>
                         <notebook>
+                            <page name="territories" string="Territories">
+                                <field name="territory_progress_ids" domain="[('state','!=','done')]">
+                                    <tree create="0">
+                                        <field name="name"/>
+                                        <field name="date_start"/>
+                                        <field name="date_end"/>
+                                        <field name="state" decoration-success="state == 'done'" decoration-primary="state == 'partially'" decoration-warning="state == 'pending'" widget="badge"/>
+                                    </tree>
+                                </field>
+                            </page>
                             <page name="notes" string="Notes">
                                 <field name="notes" widget="html"/>
                             </page>
