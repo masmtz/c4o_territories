@@ -444,7 +444,7 @@
         <record id="action_assignment" model="ir.actions.act_window">
             <field name="name">Assignment</field>
             <field name="res_model">preaching.assignment</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">calendar,form</field>
             <field name="view_id" ref="preaching_assignment_tree_view"/>
             <field name="target">current</field>
         </record>
