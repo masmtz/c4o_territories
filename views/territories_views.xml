@@ -462,6 +462,7 @@
                     <field name="date"/>
                     <field name="user_id"/>
                     <field name="assigment_type"/>
+                    <field name="territory_progress_ids" widget="many2many_tags"/>
                 </calendar>
             </field>
         </record>

@@ -53,3 +53,17 @@ class PreachingAssignmentTerritory(models.Model):
     territory_id = fields.Many2one("territory.progress")
     territory_state = fields.Selection(related="territory_id.state")
     assignment_id = fields.Many2one("preaching.assignment")
+
+    @api.model
+    def create(self, vals):
+        territory_id = self.env["territory.progress"].browse(vals["territory_id"])
+        vals["name"] = territory_id.name
+        return super(PreachingAssignmentTerritory, self).create(vals)
+
+    def write(self, vals):
+        territory_id_id = user_id = self.territory_id
+        if "territory_id" in vals:
+            territory_id = self.env["territory.progress"].browse(vals["territory_id"])
+
+        vals["name"] = territory_id.name
+        return super(PreachingAssignmentTerritory, self).write(vals)
