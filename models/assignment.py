@@ -45,4 +45,4 @@ class PreachingAssignmentTerritory(models.Model):
     sequence = fields.Integer()
     territory_id = fields.Many2one("territory.progress")
     territory_state = fields.Selection(related="territory_id.state")
-    assigment_id = fields.Many2one("preaching.assignment")
+    assignment_id = fields.Many2one("preaching.assignment")
