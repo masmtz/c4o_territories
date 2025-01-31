@@ -498,7 +498,7 @@
                                     <tree create="0">
                                         <field name="sequence" widget="handle"/>
                                         <field name="territory_id" string="Territory"/>
-                                        <field name="territory_state" decoration-success="state == 'done'" decoration-primary="state == 'partially'" decoration-warning="state == 'pending'" widget="badge"/>
+                                        <field name="territory_state" decoration-success="territory_state == 'done'" decoration-primary="territory_state == 'partially'" decoration-warning="territory_state == 'pending'" widget="badge"/>
                                     </tree>
                                 </field>
                             </page>
