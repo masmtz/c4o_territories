@@ -497,7 +497,7 @@
                                 <field name="territory_progress_ids" domain="[('territory_state','!=','done')]">
                                     <tree create="0">
                                         <field name="sequence" widget="handle"/>
-                                        <field name="territory_id" string="Territory"/>
+                                        <field name="territory_id" string="Territory" domain="[('state','!=','done')]"/>
                                         <field name="territory_state" decoration-success="territory_state == 'done'" decoration-primary="territory_state == 'partially'" decoration-warning="territory_state == 'pending'" widget="badge"/>
                                     </tree>
                                 </field>
