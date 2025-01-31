@@ -2,7 +2,7 @@
 
 from odoo import api, fields, models, _, tools
 from odoo.exceptions import UserError
-from datetime import date, datetime, _
+from datetime import date, datetime
 
 
 class PreachingAssignment(models.Model):
