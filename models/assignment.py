@@ -19,7 +19,7 @@ class PreachingAssignment(models.Model):
     notes = fields.Text()
     # territory_progress_ids = fields.One2many("territory.progress", "assignment_id")
     territory_progress_ids = fields.One2many(
-        "preaching.progress.territory", "assignment_id"
+        "preaching.assignment.territory", "assignment_id"
     )
 
     @api.model
