@@ -9,13 +9,18 @@ class PreachingAssignment(models.Model):
     _name = "preaching.assignment"
     _description = "Preaching Assignment"
 
+    def _compute_message(self):
+        self.assignment_warning = ""
+        if not self.territory_progress_ids:
+            self.assignment_warning = _"There are no territories assigned for these day. Ask your system administrator."
+
     name = fields.Char()
     user_id = fields.Many2one("res.users", string="Responsible", tracking=True)
     date = fields.Datetime(string="Date assignment", tracking=True)
     assigment_type = fields.Selection(
         [("in_person", "In Person"), ("zoom", "Zoom")],
     )
-    assignment_warning = fields.Char()
+    assignment_warning = fields.Char(compute="_compute_message")
     notes = fields.Text()
     # territory_progress_ids = fields.One2many("territory.progress", "assignment_id")
     territory_progress_ids = fields.One2many(

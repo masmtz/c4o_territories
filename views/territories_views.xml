@@ -436,6 +436,7 @@
                     <field name="name"/>
                     <field name="user_id"/>
                     <field name="date"/>
+                    <field name="territory_progress_ids" string="Working territories"/>
                 </tree>
             </field>
         </record>
