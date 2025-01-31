@@ -496,10 +496,9 @@
                             <page name="territories" string="Territories">
                                 <field name="territory_progress_ids" domain="[('state','!=','done')]">
                                     <tree create="0">
-                                        <field name="name"/>
-                                        <field name="date_start"/>
-                                        <field name="date_end"/>
-                                        <field name="state" decoration-success="state == 'done'" decoration-primary="state == 'partially'" decoration-warning="state == 'pending'" widget="badge"/>
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="territory_id" string="Territory"/>
+                                        <field name="territory_state" decoration-success="state == 'done'" decoration-primary="state == 'partially'" decoration-warning="state == 'pending'" widget="badge"/>
                                     </tree>
                                 </field>
                             </page>

@@ -17,7 +17,10 @@ class PreachingAssignment(models.Model):
     )
     assignment_warning = fields.Char()
     notes = fields.Text()
-    territory_progress_ids = fields.One2many("territory.progress", "assignment_id")
+    # territory_progress_ids = fields.One2many("territory.progress", "assignment_id")
+    territory_progress_ids = fields.One2many(
+        "preaching.progress.territory", "assignment_id"
+    )
 
     @api.model
     def create(self, vals):
@@ -32,3 +35,14 @@ class PreachingAssignment(models.Model):
 
         vals["name"] = user_id.name
         return super(PreachingAssignment, self).write(vals)
+
+
+class PreachingAssignmentTerritory(models.Model):
+    _name = "preaching.assignment.territory"
+    _description = "Preaching Assignment Territories"
+
+    name = fields.Char()
+    sequence = fields.Integer()
+    territory_id = fields.Many2one("territory.progress")
+    territory_state = fields.Selection(related="territory_id.state")
+    assigment_id = fields.Many2one("preaching.assignment")
