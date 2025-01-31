@@ -2,7 +2,7 @@
 
 from odoo import api, fields, models, _, tools
 from odoo.exceptions import UserError
-from datetime import date, datetime
+from datetime import date, datetime, _
 
 
 class PreachingAssignment(models.Model):
@@ -12,7 +12,7 @@ class PreachingAssignment(models.Model):
     def _compute_message(self):
         self.assignment_warning = ""
         if not self.territory_progress_ids:
-            self.assignment_warning = _"There are no territories assigned for these day. Ask your system administrator."
+            self.assignment_warning = _()"There are no territories assigned for these day. Ask your system administrator.")
 
     name = fields.Char()
     user_id = fields.Many2one("res.users", string="Responsible", tracking=True)
