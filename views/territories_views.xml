@@ -494,7 +494,7 @@
                         </group>
                         <notebook>
                             <page name="territories" string="Territories">
-                                <field name="territory_progress_ids" domain="[('state','!=','done')]">
+                                <field name="territory_progress_ids" domain="[('territory_state','!=','done')]">
                                     <tree create="0">
                                         <field name="sequence" widget="handle"/>
                                         <field name="territory_id" string="Territory"/>
