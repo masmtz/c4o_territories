@@ -11,12 +11,12 @@ class PreachingAssignment(models.Model):
 
     def _compute_message(self):
         self.assignment_warning = ""
-        if self.date < datetime.now():
-            self.assignment_warning = _("This assignment has expired.")
         if not self.territory_progress_ids:
             self.assignment_warning = _(
                 "There are no territories assigned for these day. Ask your system administrator."
             )
+        if self.date < datetime.now():
+            self.assignment_warning = _("This assignment has expired.")
 
     name = fields.Char()
     user_id = fields.Many2one("res.users", string="Responsible", tracking=True)
