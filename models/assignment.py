@@ -11,7 +11,7 @@ class PreachingAssignment(models.Model):
 
     def _compute_message(self):
         self.assignment_warning = ""
-        if self.date < date.now():
+        if self.date < datetime.now():
             self.assignment_warning = _("This assignment has expired.")
         if not self.territory_progress_ids:
             self.assignment_warning = _(
