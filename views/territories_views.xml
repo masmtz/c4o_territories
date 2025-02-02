@@ -480,6 +480,7 @@
                     </div>
                     <sheet>
                         <div class="oe_button_box" name="button_box"/>
+                        <field name="overdue" invisible="1"/>
                         <widget name="web_ribbon" title="Overdue" bg_color="text-bg-danger" invisible="overdue"/>
                         <div class="oe_title mb24">
                             <h1>
