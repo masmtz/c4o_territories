@@ -11,12 +11,14 @@ class PreachingAssignment(models.Model):
 
     def _compute_message(self):
         self.assignment_warning = ""
-        if not self.territory_progress_ids:
+        self.overdue = False
+        if not self.territory_progress_ids and self.assigment_type == "in_person":
             self.assignment_warning = _(
                 "There are no territories assigned for these day. Ask your system administrator."
             )
         if self.date < datetime.now():
-            self.assignment_warning = _("This assignment has expired.")
+            self.overdue = True
+            # self.assignment_warning = _("This assignment has expired.")
 
     name = fields.Char()
     user_id = fields.Many2one("res.users", string="Responsible", tracking=True)
@@ -30,6 +32,7 @@ class PreachingAssignment(models.Model):
     territory_progress_ids = fields.One2many(
         "preaching.assignment.territory", "assignment_id"
     )
+    overdue = fields.Boolean(compute="_compute_message")
 
     @api.model
     def create(self, vals):
@@ -44,6 +47,16 @@ class PreachingAssignment(models.Model):
 
         vals["name"] = user_id.name
         return super(PreachingAssignment, self).write(vals)
+
+
+class PreachingWeekAssignemtn(models.Model):
+    _name = "territory.week.assignment"
+    _description = "Territory Week Assignment"
+
+    name = fields.Char("")
+    territory_progress_ids = fields.One2many(
+        "preaching.assignment.territory", "assignment_id"
+    )
 
 
 class PreachingAssignmentTerritory(models.Model):
