@@ -549,8 +549,6 @@
                     <header>
                     </header>
                     <sheet>
-                        <div class="oe_button_box" name="button_box"/>
-                        <widget name="web_ribbon" title="Overdue" bg_color="text-bg-danger" invisible="not overdue"/>
                         <div class="oe_title mb24">
                             <h1>
                                 <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="New" readonly="1"/>
