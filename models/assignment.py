@@ -53,10 +53,20 @@ class TerritoryWeekAssignment(models.Model):
     _name = "territory.week.assignment"
     _description = "Territory Week Assignment"
 
+    @api.depends("date_start")
+    def _compute_week_number(self):
+        week_no = 0
+        if self.date_start:
+            if self.date_start.weekday() == 0:
+                week_no = self.date_start.isocalendar()[1]
+                self.date_start = week_no
+            else:
+                raise UserError("The date must be Monday")
+
     name = fields.Char("")
     date_start = fields.Date()
     date_end = fields.Date()
-    week = fields.Integer()
+    week = fields.Integer(compute="_compute_week_number", store=True)
     territory_progress_ids = fields.One2many(
         "preaching.assignment.territory", "assignment_id"
     )
