@@ -59,7 +59,7 @@ class TerritoryWeekAssignment(models.Model):
         if self.date_start:
             if self.date_start.weekday() == 0:
                 week_no = self.date_start.isocalendar()[1]
-                self.date_start = week_no
+                self.week = week_no
             else:
                 raise UserError("The date must be Monday")
 
