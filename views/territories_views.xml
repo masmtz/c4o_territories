@@ -528,7 +528,7 @@
             </field>
         </record>
 
-        <!-- action Assignment -->
+        <!-- action Week Assignment -->
         <record id="action_week_assignment" model="ir.actions.act_window">
             <field name="name">Week</field>
             <field name="res_model">territory.week.assignment</field>
@@ -537,8 +537,49 @@
             <field name="target">current</field>
         </record>
 
-        <!-- menu Assignment -->
+        <!-- menu Week Assignment -->
         <menuitem id="week_assignment_menu" name="Week" sequence="3" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territory_preaching_menu" action="c4o_territories.action_week_assignment"/>
+
+        <!-- Week Assignment form view -->
+        <record id="week_assignment_form_view" model="ir.ui.view">
+            <field name="name">week.assignment.form.view</field>
+            <field name="model">territory.week.assignment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box"/>
+                        <widget name="web_ribbon" title="Overdue" bg_color="text-bg-danger" invisible="not overdue"/>
+                        <div class="oe_title mb24">
+                            <h1>
+                                <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="New" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date_start" required="1" />
+                                <field name="date_end" required="1" />
+                            </group>
+                            <group>
+                                <field name="week" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="territories" string="Territories">
+                                <field name="territory_progress_ids" domain="[('territory_state','!=','done')]">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="territory_id" string="Territory" domain="[('state','!=','done')]"/>
+                                        <field name="territory_state" decoration-success="territory_state == 'done'" decoration-primary="territory_state == 'partially'" decoration-warning="territory_state == 'pending'" widget="badge"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
     </data>
 </odoo>

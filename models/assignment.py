@@ -54,6 +54,8 @@ class TerritoryWeekAssignment(models.Model):
     _description = "Territory Week Assignment"
 
     name = fields.Char("")
+    date_start = fields.Date()
+    date_end = fields.Date()
     week = fields.Integer()
     territory_progress_ids = fields.One2many(
         "preaching.assignment.territory", "assignment_id"
