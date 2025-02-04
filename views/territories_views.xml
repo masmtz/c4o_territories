@@ -521,7 +521,7 @@
             <field name="name">week.assignment.tree.view</field>
             <field name="model">territory.week.assignment</field>
             <field name="arch" type="xml">
-                <tree create="0">
+                <tree>
                     <field name="name"/>
                     <field name="territory_progress_ids" widget="many2many_tags"/>
                 </tree>
@@ -529,7 +529,7 @@
         </record>
 
         <!-- action Assignment -->
-        <record id="action_assignment" model="ir.actions.act_window">
+        <record id="action_week_assignment" model="ir.actions.act_window">
             <field name="name">Week</field>
             <field name="res_model">territory.week.assignment</field>
             <field name="view_mode">tree,form</field>
@@ -538,7 +538,7 @@
         </record>
 
         <!-- menu Assignment -->
-        <menuitem id="week_assignment_menu" name="Week" sequence="3" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territory_preaching_menu" action="c4o_territories.action_assignment"/>
+        <menuitem id="week_assignment_menu" name="Week" sequence="3" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territory_preaching_menu" action="c4o_territories.action_week_assignment"/>
 
     </data>
 </odoo>
