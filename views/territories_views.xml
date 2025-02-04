@@ -481,7 +481,7 @@
                     <sheet>
                         <div class="oe_button_box" name="button_box"/>
                         <field name="overdue" invisible="1"/>
-                        <widget name="web_ribbon" title="Overdue" bg_color="text-bg-danger" invisible="overdue"/>
+                        <widget name="web_ribbon" title="Overdue" bg_color="text-bg-danger" invisible="not overdue"/>
                         <div class="oe_title mb24">
                             <h1>
                                 <field options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="New" readonly="1"/>
@@ -489,11 +489,11 @@
                         </div>
                         <group>
                             <group>
-                                <field name="user_id" required="1"/>
+                                <field name="user_id" required="1" readonly="overdue"/>
                             </group>
                             <group>
-                                <field name="date" required="1" readonly="1"/>
-                                <field name="assigment_type" required="1" readonly="1"/>
+                                <field name="date" required="1" readonly="overdue"/>
+                                <field name="assigment_type" required="1" readonly="overdue"/>
                             </group>
                         </group>
                         <notebook>
@@ -513,6 +513,32 @@
                 </form>
             </field>
         </record>
+
+        <!-- ..........WEEK.......... -->
+
+        <!-- Week assignment tree view -->
+        <record id="week_assignment_tree_view" model="ir.ui.view">
+            <field name="name">week.assignment.tree.view</field>
+            <field name="model">territory.week.assignment</field>
+            <field name="arch" type="xml">
+                <tree create="0">
+                    <field name="name"/>
+                    <field name="territory_progress_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- action Assignment -->
+        <record id="action_assignment" model="ir.actions.act_window">
+            <field name="name">Week</field>
+            <field name="res_model">territory.assignment.week</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="week_assignment_tree_view"/>
+            <field name="target">current</field>
+        </record>
+
+        <!-- menu Assignment -->
+        <menuitem id="week_assignment_menu" name="Week" sequence="3" groups="c4o_territories.territories_user,c4o_territories.territories_admin" parent="c4o_territories.territory_preaching_menu" action="c4o_territories.action_assignment"/>
 
     </data>
 </odoo>

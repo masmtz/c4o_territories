@@ -49,11 +49,12 @@ class PreachingAssignment(models.Model):
         return super(PreachingAssignment, self).write(vals)
 
 
-class PreachingWeekAssignemtn(models.Model):
+class TerritoryWeekAssignment(models.Model):
     _name = "territory.week.assignment"
     _description = "Territory Week Assignment"
 
     name = fields.Char("")
+    week = fields.Integer()
     territory_progress_ids = fields.One2many(
         "preaching.assignment.territory", "assignment_id"
     )
