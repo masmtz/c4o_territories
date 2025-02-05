@@ -196,7 +196,7 @@
                     <filter string="To Work" domain="[('state', '=', 'pending')]" name="pending_territories"/>
                     
                     <group expand="0" string="Group By">
-                        <filter string="Estate" name="state_group" domain="[]" context="{'group_by': 'state'}"/>
+                        <filter string="State" name="state_group" domain="[]" context="{'group_by': 'state'}"/>
                         <filter name="responsible_group" string="Responsible" domain="[]" context="{'group_by': 'responsible'}"/>
                         <filter name="territory_group_group" string="Group" domain="[]" context="{'group_by': 'group_id'}"/>
                         <filter string="Close Date" name="close_month" domain="[]" context="{'group_by': 'date_end'}"/>
@@ -411,7 +411,7 @@
                                 <div class="o_kanban_record_bottom">
                                     <div class="oe_kanban_bottom_left text-muted">
                                         <span>
-                                            Fecha de inicio <t t-out="record.date_start.value"/>
+                                            Date start <t t-out="record.date_start.value"/>
                                         </span>
                                     </div>
                                     <div class="oe_kanban_bottom_right">

@@ -26,7 +26,7 @@ class PreachingAssignment(models.Model):
         self.overdue = False
         if not self.territory_progress_ids and self.assigment_type == "in_person":
             self.assignment_warning = _(
-                "There are no territories assigned for these day. Ask your system administrator."
+                "There are no territories assigned for these day. Please ask your system administrator."
             )
         if self.date < datetime.now():
             self.overdue = True
