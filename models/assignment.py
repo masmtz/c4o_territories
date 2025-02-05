@@ -78,7 +78,9 @@ class TerritoryWeekAssignment(models.Model):
             "Week %s (From %s To %s)"
             % (
                 self.week,
-                datetime.strptime(str(self.date_start), "%d-%M-%Y"),
+                datetime.strptime(str(self.date_start), "%Y-%M-%d").strftime(
+                    "%d-%m-%Y"
+                ),
                 self.date_end,
             )
         )
@@ -89,7 +91,9 @@ class TerritoryWeekAssignment(models.Model):
             "Week %s (From %s To %s)"
             % (
                 self.week,
-                datetime.strptime(str(self.date_start), "%d-%M-%Y"),
+                datetime.strptime(str(self.date_start), "%Y-%M-%d").strftime(
+                    "%d-%m-%Y"
+                ),
                 self.date_end,
             )
         )
