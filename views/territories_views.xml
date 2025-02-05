@@ -557,7 +557,7 @@
                         <group>
                             <group>
                                 <field name="date_start" required="1" />
-                                <field name="date_end" required="1" />
+                                <field name="date_end" readonly="1" />
                             </group>
                             <group>
                                 <field name="week" readonly="1"/>

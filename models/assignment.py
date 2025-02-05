@@ -72,6 +72,15 @@ class TerritoryWeekAssignment(models.Model):
         "preaching.assignment.territory", "assignment_id"
     )
 
+    @api.model
+    def create(self, vals):
+        vals["name"] = _("Week %s From %s To %s")
+        return super(TerritoryWeekAssignment, self).create(vals)
+
+    def write(self, vals):
+        vals["name"] = _("Week %s From %s To %s")
+        return super(TerritoryWeekAssignment, self).write(vals)
+
 
 class PreachingAssignmentTerritory(models.Model):
     _name = "preaching.assignment.territory"
