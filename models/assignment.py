@@ -9,6 +9,17 @@ class PreachingAssignment(models.Model):
     _name = "preaching.assignment"
     _description = "Preaching Assignment"
 
+    @api.depends("date")
+    def _compute_week_number(self):
+        week_no = 0
+        week_id = False
+        if self.date:
+            week_no = self.date.isocalendar()[1]
+            week_id = self.env["territory.week.assignment"].search(
+                [("week", "=", week_no)], limit=1
+            )
+        self.week_id = week_id
+
     def _compute_message(self):
         self.assignment_warning = ""
         self.overdue = False
@@ -28,11 +39,14 @@ class PreachingAssignment(models.Model):
     )
     assignment_warning = fields.Char(compute="_compute_message")
     notes = fields.Text()
-    # territory_progress_ids = fields.One2many("territory.progress", "assignment_id")
-    territory_progress_ids = fields.One2many(
-        "preaching.assignment.territory", "assignment_id"
-    )
     overdue = fields.Boolean(compute="_compute_message")
+    week_id = fields.Many2one(
+        "territory.week.assignment", compute="_compute_week_number"
+    )
+    # territory_progress_ids = fields.One2many(
+    #     "preaching.assignment.territory", "week_id"
+    # )
+    territory_progress_ids = fields.One2many(related="week_id.territory_progress_ids")
 
     @api.model
     def create(self, vals):
@@ -69,7 +83,7 @@ class TerritoryWeekAssignment(models.Model):
     date_end = fields.Date()
     week = fields.Integer(compute="_compute_week_number", store=True)
     territory_progress_ids = fields.One2many(
-        "preaching.assignment.territory", "assignment_id"
+        "preaching.assignment.territory", "week_id"
     )
 
     @api.model
@@ -116,7 +130,8 @@ class PreachingAssignmentTerritory(models.Model):
     sequence = fields.Integer()
     territory_id = fields.Many2one("territory.progress")
     territory_state = fields.Selection(related="territory_id.state")
-    assignment_id = fields.Many2one("preaching.assignment")
+    # assignment_id = fields.Many2one("preaching.assignment")
+    week_id = fields.Many2one("territory.week.assignment")
 
     @api.model
     def create(self, vals):
