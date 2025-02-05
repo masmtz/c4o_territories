@@ -74,11 +74,15 @@ class TerritoryWeekAssignment(models.Model):
 
     @api.model
     def create(self, vals):
-        vals["name"] = _("Week %s From %s To %s")
+        vals["name"] = _(
+            "Week %s From %s To %s" % (self.week, self.date_start, self.date_end)
+        )
         return super(TerritoryWeekAssignment, self).create(vals)
 
     def write(self, vals):
-        vals["name"] = _("Week %s From %s To %s")
+        vals["name"] = _(
+            "Week %s From %s To %s" % (self.week, self.date_start, self.date_end)
+        )
         return super(TerritoryWeekAssignment, self).write(vals)
 
 
