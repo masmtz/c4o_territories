@@ -11,14 +11,15 @@ class PreachingAssignment(models.Model):
 
     @api.depends("date")
     def _compute_week_number(self):
-        week_no = 0
-        week_id = False
-        if self.date:
-            week_no = self.date.isocalendar()[1]
-            week_id = self.env["territory.week.assignment"].search(
-                [("week", "=", week_no)], limit=1
-            )
-        self.week_id = week_id
+        for rec in self:
+            week_no = 0
+            week_id = False
+            if rec.date:
+                week_no = rec.date.isocalendar()[1]
+                week_id = self.env["territory.week.assignment"].search(
+                    [("week", "=", week_no)], limit=1
+                )
+            rec.week_id = week_id
 
     def _compute_message(self):
         self.assignment_warning = ""
