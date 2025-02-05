@@ -74,27 +74,35 @@ class TerritoryWeekAssignment(models.Model):
 
     @api.model
     def create(self, vals):
+        date_start = datetime.strptime(str(self.date_start), "%Y-%M-%d").strftime(
+            "%d-%m-%Y"
+        )
+        date_end = datetime.strptime(str(self.date_end), "%Y-%M-%d").strftime(
+            "%d-%m-%Y"
+        )
         vals["name"] = _(
             "Week %s (From %s To %s)"
             % (
                 self.week,
-                datetime.strptime(str(self.date_start), "%Y-%M-%d").strftime(
-                    "%d-%m-%Y"
-                ),
-                self.date_end,
+                date_start,
+                date_end,
             )
         )
         return super(TerritoryWeekAssignment, self).create(vals)
 
     def write(self, vals):
+        date_start = datetime.strptime(str(self.date_start), "%Y-%M-%d").strftime(
+            "%d-%m-%Y"
+        )
+        date_end = datetime.strptime(str(self.date_end), "%Y-%M-%d").strftime(
+            "%d-%m-%Y"
+        )
         vals["name"] = _(
             "Week %s (From %s To %s)"
             % (
                 self.week,
-                datetime.strptime(str(self.date_start), "%Y-%M-%d").strftime(
-                    "%d-%m-%Y"
-                ),
-                self.date_end,
+                date_start,
+                date_end,
             )
         )
         return super(TerritoryWeekAssignment, self).write(vals)
