@@ -461,7 +461,7 @@
                 <calendar string="Assignment" create="1" mode="month" date_start="date" color="user_id" event_limit="7" quick_create="0">
                     <field name="user_id"/>
                     <field name="assigment_type"/>
-                    <field name="territory_progress_ids" widget="many2many_tags" invisible="not territory_progress_ids"/>
+                    <field name="territory_progress_ids" string="Territories" widget="many2many_tags" invisible="not territory_progress_ids"/>
                 </calendar>
             </field>
         </record>
@@ -522,7 +522,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="territory_progress_ids" widget="many2many_tags"/>
+                    <field name="territory_progress_ids" string="Territories" widget="many2many_tags"/>
                 </tree>
             </field>
         </record>
@@ -556,10 +556,10 @@
                         <group>
                             <group>
                                 <field name="date_start" required="1" />
-                                <field name="date_end" readonly="1" />
+                                <field name="date_end" readonly="1" force_save = "1"/>
                             </group>
                             <group>
-                                <field name="week" readonly="1"/>
+                                <field name="week" readonly="1" force_save = "1"/>
                             </group>
                         </group>
                         <notebook>
