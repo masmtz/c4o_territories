@@ -77,7 +77,7 @@ class TerritoryWeekAssignment(models.Model):
                 self.week = week_no
                 self.date_end = self.date_start + timedelta(days=6)
             else:
-                raise UserError("The date must be Monday")
+                raise UserError(_("The date must be Monday"))
 
     name = fields.Char("")
     date_start = fields.Date()
@@ -89,16 +89,16 @@ class TerritoryWeekAssignment(models.Model):
 
     @api.model
     def create(self, vals):
-        date_start = datetime.strptime(str(self.date_start), "%Y-%M-%d").strftime(
+        date_start = datetime.strptime(str(vals["date_start"]), "%Y-%M-%d").strftime(
             "%d-%m-%Y"
         )
-        date_end = datetime.strptime(str(self.date_end), "%Y-%M-%d").strftime(
+        date_end = datetime.strptime(str(vals["date_end"]), "%Y-%M-%d").strftime(
             "%d-%m-%Y"
         )
         vals["name"] = _(
             "Week %s (From %s To %s)"
             % (
-                self.week,
+                vals["week"],
                 date_start,
                 date_end,
             )
