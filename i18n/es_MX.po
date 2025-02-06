@@ -589,3 +589,10 @@ msgstr "Ej. Grupo 1"
 #: model:ir.model,name:c4o_territories.model_territory_config_parameter
 msgid "territory.config.parameter"
 msgstr ""
+
+#. module: c4o_territories
+#. odoo-python
+#: code:addons/c4o_territories/models/assignment.py:0
+#, python-format
+msgid "The date must be Monday"
+msgstr "La fecha debe ser Lunes"
