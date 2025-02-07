@@ -58,7 +58,7 @@ class TerritoryLap(models.Model):
 class TerritoryProgress(models.Model):
     _name = "territory.progress"
     _inherit = [
-        "mail.thread.main.attachment",
+        "mail.thread",
         "mail.activity.mixin",
     ]
     _description = "Territories Progress"
