@@ -57,6 +57,12 @@ class TerritoryLap(models.Model):
 
 class TerritoryProgress(models.Model):
     _name = "territory.progress"
+    _inherit = [
+        "portal.mixin",
+        "mail.thread.main.attachment",
+        "mail.activity.mixin",
+        "sequence.mixin",
+    ]
     _description = "Territories Progress"
 
     name = fields.Char()
