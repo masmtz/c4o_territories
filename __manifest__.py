@@ -8,7 +8,7 @@
         Territorios C4O
     """,
     "license": "LGPL-3",
-    "depends": ["base"],
+    "depends": ["base", "mail"],
     "demo": [],
     "data": [
         "security/groups.xml",
