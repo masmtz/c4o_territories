@@ -155,5 +155,6 @@ class PreachingAssignmentTerritory(models.Model):
             "type": "ir.actions.act_window",
             "res_model": "territory.progress",
             "view_mode": "form",
+            "res_id": self.territory_id.id,
             "domain": [("id", "=", self.territory_id.id)],
         }
