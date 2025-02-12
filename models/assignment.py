@@ -147,3 +147,13 @@ class PreachingAssignmentTerritory(models.Model):
 
         vals["name"] = territory_id.name
         return super(PreachingAssignmentTerritory, self).write(vals)
+
+    def open_territory(self):
+        self.ensure_one()
+        return {
+            "name": _("Territory"),
+            "type": "ir.actions.act_window",
+            "res_model": "territory.progress",
+            "view_mode": "form",
+            "target": "new",
+        }

@@ -266,7 +266,7 @@
             <field name="arch" type="xml">
                 <form create="0">
                     <header>
-                        <button name="mark_done" string="Completed" type="object" invisible="state == 'done'"/>
+                        <button name="mark_done" string="Completed" type="object" invisible="state == 'done'" class="btn-primary"/>
                         <field name="state" widget="statusbar" statusbar_visible="pending,partially,done"/>
                     </header>
                     <div class="alert alert-warning" role="alert" invisible="not progress_warning">
@@ -309,12 +309,12 @@
                                 <field name="image" widget="image"/>
                             </page>
                         </notebook>
-                        <div class="oe_chatter">
-                            <field name="message_follower_ids"/>
-                            <field name="activity_ids"/>
-                            <field name="message_ids"/>
-                        </div>
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
                 </form>
             </field>
         </record>
@@ -507,6 +507,7 @@
                                         <field name="sequence" widget="handle"/>
                                         <field name="territory_id" string="Territory" domain="[('state','!=','done')]"/>
                                         <field name="territory_state" decoration-success="territory_state == 'done'" decoration-primary="territory_state == 'partially'" decoration-warning="territory_state == 'pending'" widget="badge"/>
+                                        <button string="Open" class="btn-primary" name="open_territory" type="object"/>
                                     </tree>
                                 </field>
                             </page>
