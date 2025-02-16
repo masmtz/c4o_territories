@@ -93,6 +93,8 @@ class TerritoryProgress(models.Model):
             for line in self.street_lines:
                 line.write({"done": 1})
             self.write({"state": "done", "date_end": date.today()})
+            if not self.date_start:
+                self.date_start = date.today()
         else:
             raise UserError(_("You need to define the responsible first"))
 
@@ -102,8 +104,10 @@ class TerritoryProgress(models.Model):
         done_lines = len(self.street_lines.filtered(lambda l: l.done))
         if not done_lines == total_lines:
             self.state = "partially"
+            self.date_start = date.today()
         if not done_lines:
             self.state = "pending"
+            self.date_start = False
 
     # def write(self, vals):
     #     res = super(TerritoryProgress, self).write(vals)
