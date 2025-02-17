@@ -86,6 +86,7 @@ class TerritoryWeekAssignment(models.Model):
     territory_progress_ids = fields.One2many(
         "preaching.assignment.territory", "week_id"
     )
+    meeting_point = fields.Char(string="Meeting point")
 
     @api.model
     def create(self, vals):
