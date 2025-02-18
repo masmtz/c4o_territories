@@ -113,7 +113,7 @@ class TerritoryWeekAssignment(models.Model):
             "%d-%m-%Y"
         )
         vals["name"] = _(
-            "Week %s (From %s To %s)"
+            "Week %s (%s)"
             % (
                 self.week,
                 date_start[-4:],
