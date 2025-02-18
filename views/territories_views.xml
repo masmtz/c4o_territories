@@ -466,7 +466,7 @@
                 <calendar string="Assignment" create="1" mode="month" date_start="date" color="user_id" event_limit="7" quick_create="0">
                     <field name="user_id"/>
                     <field name="assigment_type"/>
-                    <field name="territory_progress_ids" string="Territories" widget="many2many_tags" invisible="not territory_progress_ids"/>
+                    <field name="territory_progress_ids" string="Territories" widget="many2many_tags" invisible="not territory_progress_ids or assigment_type == 'zoom'"/>
                 </calendar>
             </field>
         </record>
@@ -496,12 +496,12 @@
                                 <field name="user_id" required="1" readonly="overdue"/>
                             </group>
                             <group>
-                                <field name="date" required="1" readonly="overdue"/>
+                                <field name="date" required="1" readonly="1"/>
                                 <field name="assigment_type" required="1" readonly="overdue"/>
                             </group>
                         </group>
                         <notebook>
-                            <page name="territories" string="Territories">
+                            <page name="territories" string="Territories" invisible="assigment_type in ['zoom',False]">
                                 <field name="territory_progress_ids" domain="[('territory_state','!=','done')]">
                                     <tree editable="bottom">
                                         <field name="sequence" widget="handle"/>
@@ -575,7 +575,7 @@
                                 <field name="territory_progress_ids" domain="[('territory_state','!=','done')]">
                                     <tree editable="bottom">
                                         <field name="sequence" widget="handle"/>
-                                        <field name="territory_id" string="Territory" domain="[('state','!=','done')]"/>
+                                        <field name="territory_id" string="Territory" domain="[('state','!=','done')]" options="{'no_create': True}"/>
                                         <field name="territory_state" decoration-success="territory_state == 'done'" decoration-primary="territory_state == 'partially'" decoration-warning="territory_state == 'pending'" widget="badge"/>
                                     </tree>
                                 </field>

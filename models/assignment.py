@@ -28,7 +28,7 @@ class PreachingAssignment(models.Model):
             self.assignment_warning = _(
                 "There are no territories assigned for these day. Please ask your system administrator."
             )
-        if self.date < datetime.now():
+        if self.date < (datetime.now() + timedelta(hours=2)):
             self.overdue = True
             # self.assignment_warning = _("This assignment has expired.")
 
@@ -97,11 +97,10 @@ class TerritoryWeekAssignment(models.Model):
             "%d-%m-%Y"
         )
         vals["name"] = _(
-            "Week %s (From %s To %s)"
+            "Week %s (%s)"
             % (
                 vals["week"],
-                date_start,
-                date_end,
+                date_start[-4:],
             )
         )
         return super(TerritoryWeekAssignment, self).create(vals)
@@ -117,8 +116,7 @@ class TerritoryWeekAssignment(models.Model):
             "Week %s (From %s To %s)"
             % (
                 self.week,
-                date_start,
-                date_end,
+                date_start[-4:],
             )
         )
         return super(TerritoryWeekAssignment, self).write(vals)
