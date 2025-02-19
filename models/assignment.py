@@ -28,7 +28,7 @@ class PreachingAssignment(models.Model):
             self.assignment_warning = _(
                 "There are no territories assigned for these day. Please ask your system administrator."
             )
-        if self.date < (datetime.now() + timedelta(hours=2)):
+        if (self.date + timedelta(hours=2)) < datetime.now():
             self.overdue = True
             # self.assignment_warning = _("This assignment has expired.")
 
