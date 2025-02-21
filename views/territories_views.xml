@@ -290,7 +290,7 @@
                                 <field name="num_houses" readonly="1"/>
                                 <field name="date_start" readonly="state == 'done'"/>
                                 <field name="date_end" readonly="state == 'done'"/>
-                                <field name="days"/>
+                                <field name="days" optional="hide"/>
                             </group>
                             <label for="notes"/>
                             <field name="notes" widget="html" readonly="state == 'done'"/>
@@ -332,7 +332,7 @@
                     <field name="name"/>
                     <field name="date_start"/>
                     <field name="date_end"/>
-                    <field name="days"/>
+                    <field name="days" optional="hide"/>
                     <field name="state" decoration-success="state == 'done'" decoration-info="state == 'draft'" decoration-primary="state == 'progress'" decoration-warning="state == 'pause'" widget="badge"/>
                 </tree>
             </field>
@@ -386,7 +386,7 @@
                                         <field name="name"/>
                                         <field name="date_start"/>
                                         <field name="date_end"/>
-                                        <field name="days"/>
+                                        <field name="days" optional="hide"/>
                                         <field name="state" decoration-success="state == 'done'" decoration-primary="state == 'partially'" decoration-warning="state == 'pending'" widget="badge"/>
                                     </tree>
                                 </field>
