@@ -89,13 +89,38 @@ class TerritoryProgress(models.Model):
     ]
     _description = "Territories Progress"
 
+    def _get_number_of_days(self, date_from, date_to):
+        print("_get_number_of_days")
+        """
+        FUNCIÓN QUE REGRESA LA DIFERENCIA DE DIAS ENTRE 2 FECHAS
+        """
+        """Returns a float equals to the timedelta between two dates given as string."""
+        # DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+        DATETIME_FORMAT = "%Y-%m-%d"
+        from_dt = datetime.strptime(str(date_from), DATETIME_FORMAT)
+        to_dt = datetime.strptime(str(date_to), DATETIME_FORMAT)
+        timedelta = to_dt - from_dt
+        diff_day = timedelta.days + float(timedelta.seconds) / 86400
+        return diff_day
+
+    @api.depends("date_start", "date_end")
+    def _compute_days(self):
+        self.days = 0
+        if self.date_start:
+            diff_days = 0
+            if self.date_end:
+                diff_days = self._get_number_of_days(self.date_start, self.date_end)
+            else:
+                diff_days = self._get_number_of_days(self.date_start, date.today())
+            self.days = diff_days
+
     name = fields.Char()
     notes = fields.Text()
     territory_id = fields.Many2one("preaching.territory")
     group_id = fields.Many2one("territory.group")
     num_houses = fields.Integer(string="Num. Houses", tracking=True)
     lap_id = fields.Many2one("territory.lap")
-    # assignment_id = fields.Many2one("preaching.assignment")
+    days = fields.Integer(compute="_compute_days", store=True)
     state = fields.Selection(
         [
             ("pending", "To Work"),
