@@ -164,6 +164,7 @@
                     <field name="date_start"/>
                     <field name="date_end"/>
                     <field name="days" optional="hide"/>
+                    <field name="num_houses" optional="hide"/>
                     <field name="responsible"/>
                     <field name="state" decoration-success="state == 'done'" decoration-primary="state == 'partially'" decoration-warning="state == 'pending'" widget="badge"/>
                 </tree>
