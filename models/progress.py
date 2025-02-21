@@ -2,12 +2,36 @@
 
 from odoo import api, fields, models, _, tools
 from odoo.exceptions import UserError
-from datetime import date, datetime
+from datetime import datetime, timedelta, date
 
 
 class TerritoryLap(models.Model):
     _name = "territory.lap"
     _description = "Territory Laps"
+
+    def _get_number_of_days(self, date_from, date_to):
+        print("_get_number_of_days")
+        """
+        FUNCIÓN QUE REGRESA LA DIFERENCIA DE DIAS ENTRE 2 FECHAS
+        """
+        """Returns a float equals to the timedelta between two dates given as string."""
+        # DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+        DATETIME_FORMAT = "%Y-%m-%d"
+        from_dt = datetime.strptime(str(date_from), DATETIME_FORMAT)
+        to_dt = datetime.strptime(str(date_to), DATETIME_FORMAT)
+        timedelta = to_dt - from_dt
+        diff_day = timedelta.days + float(timedelta.seconds) / 86400
+        return diff_day
+
+    @api.depends("date_start", "date_end")
+    def _compute_days(self):
+        self.days = 0
+        diff_days = 0
+        if self.date_start:
+            if self.date_end:
+                diff_days = self._get_number_of_days(self.date_start, self.date_end)
+            else:
+                diff_days = self._get_number_of_days(self.date_start, date.today())
 
     name = fields.Char()
     date_start = fields.Date(string="Start date", tracking=True)
@@ -23,6 +47,7 @@ class TerritoryLap(models.Model):
     )
     lap_warning = fields.Char()
     territory_progress_ids = fields.One2many("territory.progress", "lap_id")
+    days = fields.Integer(compute="_compute_days", store=True)
 
     def start_lap(self):
         territory_ids = self.env["preaching.territory"].search([(1, "=", 1)])
