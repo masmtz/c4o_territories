@@ -26,12 +26,13 @@ class TerritoryLap(models.Model):
     @api.depends("date_start", "date_end")
     def _compute_days(self):
         self.days = 0
-        diff_days = 0
         if self.date_start:
+            diff_days = 0
             if self.date_end:
                 diff_days = self._get_number_of_days(self.date_start, self.date_end)
             else:
                 diff_days = self._get_number_of_days(self.date_start, date.today())
+            self.days = diff_days
 
     name = fields.Char()
     date_start = fields.Date(string="Start date", tracking=True)
