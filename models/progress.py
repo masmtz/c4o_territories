@@ -25,14 +25,15 @@ class TerritoryLap(models.Model):
 
     @api.depends("date_start", "date_end")
     def _compute_days(self):
-        self.days = 0
-        if self.date_start:
-            diff_days = 0
-            if self.date_end:
-                diff_days = self._get_number_of_days(self.date_start, self.date_end)
-            else:
-                diff_days = self._get_number_of_days(self.date_start, date.today())
-            self.days = diff_days
+        for rec in self:
+            rec.days = 0
+            if rec.date_start:
+                diff_days = 0
+                if rec.date_end:
+                    diff_days = rec._get_number_of_days(rec.date_start, rec.date_end)
+                else:
+                    diff_days = rec._get_number_of_days(rec.date_start, date.today())
+                rec.days = diff_days
 
     name = fields.Char()
     date_start = fields.Date(string="Start date", tracking=True)
@@ -105,14 +106,15 @@ class TerritoryProgress(models.Model):
 
     @api.depends("date_start", "date_end")
     def _compute_days(self):
-        self.days = 0
-        if self.date_start:
-            diff_days = 0
-            if self.date_end:
-                diff_days = self._get_number_of_days(self.date_start, self.date_end)
-            else:
-                diff_days = self._get_number_of_days(self.date_start, date.today())
-            self.days = diff_days
+        for rec in self:
+            rec.days = 0
+            if rec.date_start:
+                diff_days = 0
+                if rec.date_end:
+                    diff_days = rec._get_number_of_days(rec.date_start, rec.date_end)
+                else:
+                    diff_days = rec._get_number_of_days(rec.date_start, date.today())
+                rec.days = diff_days
 
     name = fields.Char()
     notes = fields.Text()
