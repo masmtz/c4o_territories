@@ -7,6 +7,10 @@ from datetime import date, datetime, timedelta
 
 class PreachingAssignment(models.Model):
     _name = "preaching.assignment"
+    _inherit = [
+        "mail.thread",
+        "mail.activity.mixin",
+    ]
     _description = "Preaching Assignment"
 
     @api.depends("date")
@@ -47,7 +51,9 @@ class PreachingAssignment(models.Model):
     # territory_progress_ids = fields.One2many(
     #     "preaching.assignment.territory", "week_id"
     # )
-    territory_progress_ids = fields.One2many(related="week_id.territory_progress_ids")
+    territory_progress_ids = fields.One2many(
+        related="week_id.territory_progress_ids", tracking=True
+    )
 
     @api.model
     def create(self, vals):

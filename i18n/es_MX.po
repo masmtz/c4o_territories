@@ -332,7 +332,7 @@ msgstr "Número de casas"
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__overdue
 #: model_terms:ir.ui.view,arch_db:c4o_territories.preaching_form_view
 msgid "Overdue"
-msgstr "Vencido"
+msgstr "Hecho"
 
 #. module: c4o_territories
 #: model:ir.model.fields.selection,name:c4o_territories.selection__territory_progress__state__partially
