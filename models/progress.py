@@ -46,6 +46,7 @@ class TerritoryLap(models.Model):
             ("done", "Done"),
         ],
         tracking=True,
+        default="draft",
     )
     lap_warning = fields.Char()
     territory_progress_ids = fields.One2many("territory.progress", "lap_id")
