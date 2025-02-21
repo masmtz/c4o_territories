@@ -107,13 +107,11 @@ class TerritoryProgress(models.Model):
     @api.depends("date_start", "date_end")
     def _compute_days(self):
         for rec in self:
-            rec.days = 0
+            rec.days = False
             if rec.date_start:
-                diff_days = 0
+                diff_days = False
                 if rec.date_end:
                     diff_days = rec._get_number_of_days(rec.date_start, rec.date_end)
-                else:
-                    diff_days = rec._get_number_of_days(rec.date_start, date.today())
                 rec.days = diff_days
 
     name = fields.Char()
