@@ -69,6 +69,32 @@ class PreachingAssignment(models.Model):
         vals["name"] = user_id.name
         return super(PreachingAssignment, self).write(vals)
 
+    def cron_send_email(self):
+        if self.date_start == datetime.now() + timedelta(days=1):
+            subject = "Recordatorio de asignación"
+            body_html = (
+                "Estimado %s, \nUsted tiene una asignación (%s) para el día %s, para sacar el grupo de predicación."
+                % s(self.user_id.name, self.assigment_type, self.date)
+            )
+            email_to = self.user_id.email
+            self.send_email(subject, body_html, email_to, "s.mtz.casillas@gmail.com")
+
+    def send_email(
+        self, subject, body_html, email_to, email_from="s.mtz.casillas@gmail.com"
+    ):
+        mail_message_obj = self.env["mail.mail"]
+        email_vals = {
+            "subject": subject,
+            "body_html": body_html,
+            "email_to": email_to,
+            "email_from": email_from,
+        }
+        # Creamos el Correo
+        mail_id = mail_message_obj.create(email_vals)
+        # Mostramos la ventana para enviar correo
+        mail_id.send(False, False)
+        return True
+
 
 class TerritoryWeekAssignment(models.Model):
     _name = "territory.week.assignment"
