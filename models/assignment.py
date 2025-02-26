@@ -70,7 +70,7 @@ class PreachingAssignment(models.Model):
         return super(PreachingAssignment, self).write(vals)
 
     def cron_send_email(self):
-        if self.date_start == datetime.now() + timedelta(days=1):
+        if self.date == datetime.now() + timedelta(days=1):
             subject = "Recordatorio de asignación"
             body_html = (
                 "Estimado %s, \nUsted tiene una asignación (%s) para el día %s, para sacar el grupo de predicación."
