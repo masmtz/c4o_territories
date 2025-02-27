@@ -84,7 +84,7 @@ class PreachingAssignment(models.Model):
                     "%Y-%m-%d"
                 )
             ):
-                raise UserError("Entró")
+                # raise UserError("Entró")
                 subject = "Recordatorio de asignación"
                 body_html = (
                     "Estimado %s, \nUsted tiene una asignación (%s) para el día %s, para sacar el grupo de predicación."
