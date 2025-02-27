@@ -69,7 +69,7 @@ class PreachingAssignment(models.Model):
         vals["name"] = user_id.name
         return super(PreachingAssignment, self).write(vals)
 
-    def _cron_send_email(self):
+    def cron_send_email(self):
         for record in self:
             if record.date.date() == datetime.today() + timedelta(days=1):
                 raise UserError("Entró")
