@@ -71,15 +71,17 @@ class PreachingAssignment(models.Model):
 
     def cron_send_email(self):
         for record in self:
-            raise UserError(
-                str(record.date.date())
-                + str(
-                    (
-                        datetime.today() + timedelta(days=1) - +timedelta(hours=7)
-                    ).strftime("%Y-%m-%d")
-                )
-            )
-            if record.date.date() == datetime.today() + timedelta(days=1):
+            # raise UserError(
+            #     str(record.date.date())
+            #     + str(
+            #         (
+            #             datetime.today() + timedelta(days=1) - +timedelta(hours=7)
+            #         ).strftime("%Y-%m-%d")
+            #     )
+            # )
+            if record.date.date() == (
+                datetime.today() + timedelta(days=1) - +timedelta(hours=7)
+            ).strftime("%Y-%m-%d"):
                 raise UserError("Entró")
                 subject = "Recordatorio de asignación"
                 body_html = (
