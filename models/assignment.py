@@ -88,7 +88,7 @@ class PreachingAssignment(models.Model):
                 subject = "Recordatorio de asignación"
                 body_html = (
                     "Estimado %s, \nUsted tiene una asignación (%s) para el día %s, para sacar el grupo de predicación."
-                    % s(record.user_id.name, record.assigment_type, record.date)
+                    % (record.user_id.name, record.assigment_type, record.date)
                 )
                 email_to = record.user_id.email
                 record.send_email(
