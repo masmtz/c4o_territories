@@ -75,13 +75,15 @@ class PreachingAssignment(models.Model):
             #     str(record.date.date())
             #     + str(
             #         (
-            #             datetime.today() + timedelta(days=1) - +timedelta(hours=7)
+            #             datetime.today() + timedelta(days=1) - timedelta(hours=7)
             #         ).strftime("%Y-%m-%d")
             #     )
             # )
-            if record.date.date() == (
-                datetime.today() + timedelta(days=1) - +timedelta(hours=7)
-            ).strftime("%Y-%m-%d"):
+            if str(record.date.date()) == str(
+                (datetime.today() + timedelta(days=1) - timedelta(hours=7)).strftime(
+                    "%Y-%m-%d"
+                )
+            ):
                 raise UserError("Entró")
                 subject = "Recordatorio de asignación"
                 body_html = (
