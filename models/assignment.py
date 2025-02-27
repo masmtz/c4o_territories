@@ -72,6 +72,7 @@ class PreachingAssignment(models.Model):
     def cron_send_email(self):
         for record in self:
             if record.date.date() == datetime.today() + timedelta(days=1):
+                raise UserError("Entró")
                 subject = "Recordatorio de asignación"
                 body_html = (
                     "Estimado %s, \nUsted tiene una asignación (%s) para el día %s, para sacar el grupo de predicación."
