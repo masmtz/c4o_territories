@@ -73,7 +73,7 @@ class PreachingAssignment(models.Model):
         for record in self:
             raise UserError(
                 str(record.date.date())
-                + str(datetime.today().strftime("%d-%m-%Y") + timedelta(days=1))
+                + str(datetime.today() + timedelta(days=1).strftime("%d-%m-%Y"))
             )
             if record.date.date() == datetime.today() + timedelta(days=1):
                 raise UserError("Entró")
