@@ -85,7 +85,7 @@ class PreachingAssignment(models.Model):
                 )
             ):
                 # raise UserError("Entró")
-                subject = _"Assignment reminder"
+                subject = _("Assignment reminder")
                 body_html = _(
                     "Dear %s,<br/>You have been assigned to take out the preaching group (%s) on %s"
                     % (
