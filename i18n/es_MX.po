@@ -6,14 +6,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0-20241216\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 23:06+0000\n"
-"PO-Revision-Date: 2025-02-05 23:06+0000\n"
+"POT-Creation-Date: 2025-02-28 19:24+0000\n"
+"PO-Revision-Date: 2025-02-28 19:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__message_needaction
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__activity_ids
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__activity_exception_decoration
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__activity_state
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__activity_type_icon
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
 
 #. module: c4o_territories
 #: model:ir.model.fields.selection,name:c4o_territories.selection__preaching_territory__state__applied
@@ -36,6 +66,19 @@ msgstr "Asignación"
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__assignment_warning
 msgid "Assignment Warning"
 msgstr "Mensaje de asignación"
+
+#. module: c4o_territories
+#. odoo-python
+#: code:addons/c4o_territories/models/assignment.py:0
+#, python-format
+msgid "Assignment reminder"
+msgstr "Recordatorio de asignación"
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__message_attachment_count
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__message_attachment_count
+msgid "Attachment Count"
+msgstr "Contador de adjuntos"
 
 #. module: c4o_territories
 #. odoo-python
@@ -115,6 +158,26 @@ msgid "Date assignment"
 msgstr "Fecha de asignación"
 
 #. module: c4o_territories
+#: model_terms:ir.ui.view,arch_db:c4o_territories.territory_lap_kanban_view
+msgid "Date start"
+msgstr "Fecha de inicio"
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_lap__days
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__days
+msgid "Days"
+msgstr "Días"
+
+#. module: c4o_territories
+#. odoo-python
+#: code:addons/c4o_territories/models/assignment.py:0
+#, python-format
+msgid ""
+"Dear %s,<br/>You have been assigned to take out the preaching group (%s) on "
+"%s"
+msgstr "Estimado %s,<br/>Ha sido asignado a sacar el grupo de predicación (%s) el día %s"
+
+#. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__description
 msgid "Description"
 msgstr "Descripción"
@@ -164,14 +227,22 @@ msgid "End date"
 msgstr "Fecha de finalización"
 
 #. module: c4o_territories
-#: model_terms:ir.ui.view,arch_db:c4o_territories.territory_progress_search_view
-msgid "State"
-msgstr "Estado"
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__message_follower_ids
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
 
 #. module: c4o_territories
-#: model_terms:ir.ui.view,arch_db:c4o_territories.territory_lap_kanban_view
-msgid "Date start"
-msgstr "Fecha de inicio"
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__message_partner_ids
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: c4o_territories
+#: model:ir.model.fields,help:c4o_territories.field_preaching_assignment__activity_type_icon
+#: model:ir.model.fields,help:c4o_territories.field_territory_progress__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__group_id
@@ -192,6 +263,12 @@ msgid "Groups"
 msgstr "Grupos"
 
 #. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__has_message
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__id
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment_territory__id
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__id
@@ -203,6 +280,30 @@ msgstr "Grupos"
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_street__id
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_week_assignment__id
 msgid "ID"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__activity_exception_icon
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,help:c4o_territories.field_preaching_assignment__activity_exception_icon
+#: model:ir.model.fields,help:c4o_territories.field_territory_progress__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,help:c4o_territories.field_preaching_assignment__message_needaction
+#: model:ir.model.fields,help:c4o_territories.field_territory_progress__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,help:c4o_territories.field_preaching_assignment__message_has_error
+#: model:ir.model.fields,help:c4o_territories.field_territory_progress__message_has_error
+msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: c4o_territories
@@ -227,6 +328,12 @@ msgstr "Presencial"
 #: model:ir.model.fields.selection,name:c4o_territories.selection__territory_lap__state__progress
 msgid "In Progress"
 msgstr "En progreso"
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__message_is_follower
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__message_is_follower
+msgid "Is Follower"
+msgstr ""
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__lap_id
@@ -274,8 +381,27 @@ msgstr "Última vez modificado el"
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__meeting_point
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_week_assignment__meeting_point
 msgid "Meeting point"
 msgstr "Punto de reunión"
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__message_has_error
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__message_ids
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__my_activity_date_deadline
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_street__n_street
@@ -303,6 +429,24 @@ msgid "New"
 msgstr "Nuevo"
 
 #. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__activity_date_deadline
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__activity_summary
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__activity_type_id
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: c4o_territories
 #: model:ir.model.fields.selection,name:c4o_territories.selection__territory_progress_line__sidewalk__n
 #: model:ir.model.fields.selection,name:c4o_territories.selection__territory_street__sidewalk__n
 msgid "North"
@@ -327,6 +471,35 @@ msgstr "Número de casas"
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress_line__num_houses
 msgid "Num. Houses"
 msgstr "Número de casas"
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__message_needaction_counter
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__message_has_error_counter
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,help:c4o_territories.field_preaching_assignment__message_needaction_counter
+#: model:ir.model.fields,help:c4o_territories.field_territory_progress__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,help:c4o_territories.field_preaching_assignment__message_has_error_counter
+#: model:ir.model.fields,help:c4o_territories.field_territory_progress__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: c4o_territories
+#: model_terms:ir.ui.view,arch_db:c4o_territories.preaching_form_view
+msgid "Open"
+msgstr ""
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__overdue
@@ -381,9 +554,20 @@ msgid "Responsible"
 msgstr "Responsable"
 
 #. module: c4o_territories
+#: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__activity_user_id
+#: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_street__s_street
 msgid "S Street"
 msgstr "Calle S."
+
+#. module: c4o_territories
+#: model_terms:ir.ui.view,arch_db:c4o_territories.preaching_form_view
+msgid "Send mail"
+msgstr ""
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment_territory__sequence
@@ -418,8 +602,19 @@ msgstr "Fecha de inicio"
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__state
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_lap__state
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__state
+#: model_terms:ir.ui.view,arch_db:c4o_territories.territory_progress_search_view
 msgid "State"
 msgstr "Estado"
+
+#. module: c4o_territories
+#: model:ir.model.fields,help:c4o_territories.field_preaching_assignment__activity_state
+#: model:ir.model.fields,help:c4o_territories.field_territory_progress__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_territory__street_lines
@@ -443,9 +638,11 @@ msgstr "Calles"
 #: model:ir.ui.menu,name:c4o_territories.territories_main_menu
 #: model:ir.ui.menu,name:c4o_territories.territories_menu
 #: model_terms:ir.ui.view,arch_db:c4o_territories.groups_form_view
+#: model_terms:ir.ui.view,arch_db:c4o_territories.preaching_assignment_calendar_view
 #: model_terms:ir.ui.view,arch_db:c4o_territories.preaching_form_view
 #: model_terms:ir.ui.view,arch_db:c4o_territories.territory_lap_form_view
 #: model_terms:ir.ui.view,arch_db:c4o_territories.week_assignment_form_view
+#: model_terms:ir.ui.view,arch_db:c4o_territories.week_assignment_tree_view
 msgid "Territories"
 msgstr "Territorios"
 
@@ -470,6 +667,8 @@ msgid "Territories: User"
 msgstr "Territorios: Usuario"
 
 #. module: c4o_territories
+#. odoo-python
+#: code:addons/c4o_territories/models/assignment.py:0
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment_territory__territory_id
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_group__territory_ids
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__territory_id
@@ -478,6 +677,7 @@ msgstr "Territorios: Usuario"
 #: model_terms:ir.ui.view,arch_db:c4o_territories.territory_progress_calendar_view
 #: model_terms:ir.ui.view,arch_db:c4o_territories.territory_progress_search_view
 #: model_terms:ir.ui.view,arch_db:c4o_territories.week_assignment_form_view
+#, python-format
 msgid "Territory"
 msgstr "Territorio"
 
@@ -512,10 +712,19 @@ msgstr "Asignación de territorio semanal"
 #. odoo-python
 #: code:addons/c4o_territories/models/assignment.py:0
 #, python-format
+msgid "The date must be Monday"
+msgstr "La fecha debe ser Lunes"
+
+#. module: c4o_territories
+#. odoo-python
+#: code:addons/c4o_territories/models/assignment.py:0
+#, python-format
 msgid ""
 "There are no territories assigned for these day. Please ask your system "
 "administrator."
-msgstr "No hay territorios asignados para este día. Por favor contacta a tu administrador de sistema."
+msgstr ""
+"No hay territorios asignados para este día. Por favor contacta a tu "
+"administrador de sistema."
 
 #. module: c4o_territories
 #: model:ir.model.fields.selection,name:c4o_territories.selection__territory_progress__state__pending
@@ -526,7 +735,13 @@ msgstr "Por trabajar"
 #. module: c4o_territories
 #: model_terms:ir.ui.view,arch_db:c4o_territories.territories_tree_view
 msgid "Total"
-msgstr "Total"
+msgstr ""
+
+#. module: c4o_territories
+#: model:ir.model.fields,help:c4o_territories.field_preaching_assignment__activity_exception_decoration
+#: model:ir.model.fields,help:c4o_territories.field_territory_progress__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_street__w_street
@@ -547,8 +762,8 @@ msgstr "Semana"
 #: code:addons/c4o_territories/models/assignment.py:0
 #: code:addons/c4o_territories/models/assignment.py:0
 #, python-format
-msgid "Week %s (From %s To %s)"
-msgstr "Semana %s (Del %s Al %s)"
+msgid "Week %s (%s)"
+msgstr ""
 
 #. module: c4o_territories
 #: model:ir.model.fields.selection,name:c4o_territories.selection__territory_progress_line__sidewalk__w
@@ -571,7 +786,7 @@ msgstr "Primero necesitas definir un responsable"
 #. module: c4o_territories
 #: model:ir.model.fields.selection,name:c4o_territories.selection__preaching_assignment__assigment_type__zoom
 msgid "Zoom"
-msgstr "Zoom"
+msgstr ""
 
 #. module: c4o_territories
 #: model_terms:ir.ui.view,arch_db:c4o_territories.territories_form_view
@@ -589,10 +804,3 @@ msgstr "Ej. Grupo 1"
 #: model:ir.model,name:c4o_territories.model_territory_config_parameter
 msgid "territory.config.parameter"
 msgstr ""
-
-#. module: c4o_territories
-#. odoo-python
-#: code:addons/c4o_territories/models/assignment.py:0
-#, python-format
-msgid "The date must be Monday"
-msgstr "La fecha debe ser Lunes"
