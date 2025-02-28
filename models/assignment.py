@@ -85,10 +85,14 @@ class PreachingAssignment(models.Model):
                 )
             ):
                 # raise UserError("Entró")
-                subject = "Recordatorio de asignación"
-                body_html = (
-                    "Estimado %s, \nUsted tiene una asignación (%s) para el día %s, para sacar el grupo de predicación."
-                    % (record.user_id.name, record.assigment_type, record.date)
+                subject = _"Assignment reminder"
+                body_html = _(
+                    "Dear %s,<br/>You have been assigned to take out the preaching group (%s) on %s"
+                    % (
+                        record.user_id.name,
+                        record.assigment_type,
+                        record.date - timedelta(hours=7),
+                    )
                 )
                 email_to = record.user_id.email
                 record.send_email(
