@@ -499,7 +499,7 @@ msgstr ""
 #. module: c4o_territories
 #: model_terms:ir.ui.view,arch_db:c4o_territories.preaching_form_view
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__overdue
@@ -557,7 +557,7 @@ msgstr "Responsable"
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment__activity_user_id
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_progress__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "Responsable"
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_territory_street__s_street
@@ -567,7 +567,7 @@ msgstr "Calle S."
 #. module: c4o_territories
 #: model_terms:ir.ui.view,arch_db:c4o_territories.preaching_form_view
 msgid "Send mail"
-msgstr ""
+msgstr "Enviar correo"
 
 #. module: c4o_territories
 #: model:ir.model.fields,field_description:c4o_territories.field_preaching_assignment_territory__sequence
@@ -735,7 +735,7 @@ msgstr "Por trabajar"
 #. module: c4o_territories
 #: model_terms:ir.ui.view,arch_db:c4o_territories.territories_tree_view
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #. module: c4o_territories
 #: model:ir.model.fields,help:c4o_territories.field_preaching_assignment__activity_exception_decoration
@@ -763,7 +763,7 @@ msgstr "Semana"
 #: code:addons/c4o_territories/models/assignment.py:0
 #, python-format
 msgid "Week %s (%s)"
-msgstr ""
+msgstr "Semana %s (%s)"
 
 #. module: c4o_territories
 #: model:ir.model.fields.selection,name:c4o_territories.selection__territory_progress_line__sidewalk__w
@@ -786,7 +786,7 @@ msgstr "Primero necesitas definir un responsable"
 #. module: c4o_territories
 #: model:ir.model.fields.selection,name:c4o_territories.selection__preaching_assignment__assigment_type__zoom
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 #. module: c4o_territories
 #: model_terms:ir.ui.view,arch_db:c4o_territories.territories_form_view
