@@ -178,6 +178,7 @@
             <field name="view_mode">tree,kanban,graph,calendar,form</field>
             <field name="view_id" ref="territory_progress_tree_view"/>
             <field name="target">current</field>
+            <field name="domain">[('lap_id.state','=','progress')]</field>
         </record>
 
         <!-- menu Progress -->
@@ -359,6 +360,9 @@
                 <form>
                     <header>
                         <button name="start_lap" string="Start Lap" type="object" invisible="not state == 'draft'"/>
+                        <button name="pause_lap" string="Pause Lap" type="object" invisible="not state == 'progress'"/>
+                        <button name="unpause_lap" string="Continue" type="object" invisible="not state == 'pause'"/>
+                        <button name="mark_done_lap" string="Mark Done" type="object" invisible="not state == 'progress'"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,progress,pause,done"/>
                     </header>
                     <div class="alert alert-warning" role="alert" invisible="not lap_warning">

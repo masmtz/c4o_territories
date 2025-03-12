@@ -82,6 +82,15 @@ class TerritoryLap(models.Model):
                     )
         self.state = "progress"
 
+    def pause_lap(self):
+        self.state = "pause"
+
+    def unpause_lap(self):
+        self.state = "progress"
+
+    def mark_done_lap(self):
+        self.state = "done"
+
 
 class TerritoryProgress(models.Model):
     _name = "territory.progress"
