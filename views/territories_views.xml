@@ -295,7 +295,7 @@
                                 <field name="days"/>
                             </group>
                             <label for="notes"/>
-                            <field name="notes" widget="html" readonly="state == 'done'"/>
+                            <field name="notes" widget="html"/>
                         </group>
                         <notebook>
                             <page name="streets" string="Streets">
