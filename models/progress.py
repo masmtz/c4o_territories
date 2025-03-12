@@ -7,6 +7,10 @@ from datetime import datetime, timedelta, date
 
 class TerritoryLap(models.Model):
     _name = "territory.lap"
+    _inherit = [
+        "mail.thread",
+        "mail.activity.mixin",
+    ]
     _description = "Territory Laps"
 
     def _get_number_of_days(self, date_from, date_to):
