@@ -55,6 +55,9 @@
                                     </tree>
                                 </field>
                             </page>
+                            <page name="image" string="Image">
+                                <field name="image" widget="image"/>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>

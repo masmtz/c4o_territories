@@ -74,6 +74,7 @@ class TerritoryGroup(models.Model):
 
     name = fields.Char()
     territory_ids = fields.One2many("preaching.territory", "group_id")
+    image = fields.Binary()
 
 
 class TerritoryConfigParamenter(models.Model):
