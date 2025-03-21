@@ -222,6 +222,7 @@
                     <field name="date_end"/>
                     <field name="state"/>
                     <field name="responsible"/>
+                    <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_card oe_kanban_global_click">
